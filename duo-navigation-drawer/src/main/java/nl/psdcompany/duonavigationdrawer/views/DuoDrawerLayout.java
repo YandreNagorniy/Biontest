@@ -1,5 +1,6 @@
 package nl.psdcompany.duonavigationdrawer.views;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -69,6 +70,7 @@ public class DuoDrawerLayout extends RelativeLayout {
     private static final String TAG_CONTENT = "content";
     private static final String TAG_OVERLAY = "overlay";
 
+    @SuppressLint("ResourceType")
     @LayoutRes
     private static final int DEFAULT_ATTRIBUTE_VALUE = -54321;
     private static final float CONTENT_SCALE_CLOSED = 1.0f;
