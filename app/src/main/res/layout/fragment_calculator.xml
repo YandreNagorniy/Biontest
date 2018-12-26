@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:numberpicker="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator_fragCalculator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_calculator"
+        tools:ignore="RtlHardcoded">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBar_fragCalculator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounder_bottom"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_fragCalculator"
+                style="@style/ToolBarWithNavigationBack"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:contentScrim="?colorPrimary"
+
+                app:expandedTitleMarginBottom="94dp"
+                app:expandedTitleTextAppearance="@style/CollapsingTextAppearance.Inverse"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="Калькулятор">
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/wheat"
+                    android:tint="#c72c691e" />
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar_fragCalculator"
+                    style="@style/ToolBarWithNavigationBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@null"
+                    app:layout_collapseMode="pin" />
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            app:behavior_overlapTop="78dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_value"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/plants"
+                        android:textSize="32sp"
+                        app:hintText="Выберите культуру" />
+                </LinearLayout>
+
+                <include layout="@layout/content_calculator" />
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="200dp"-->
+                    <!--android:layout_marginStart="16dp"-->
+                    <!--android:layout_marginEnd="16dp"-->
+                    <!--android:background="@drawable/bg_value"-->
+                    <!--android:padding="8dp">-->
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:background="@drawable/bg_value"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="@id/gLine1"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/tvS_frgCalculator"-->
+                <!--android:orientation="vertical"-->
+                <!--android:padding="8dp">-->
+
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="8dp"-->
+                <!--android:text="Урожайность" />-->
+
+                <!--<com.travijuu.numberpicker.library.NumberPicker-->
+                <!--android:id="@+id/number_picker_custom"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--numberpicker:custom_layout="@layout/number_picker_layout2"-->
+                <!--numberpicker:max="10"-->
+                <!--numberpicker:min="0"-->
+                <!--numberpicker:unit="2"-->
+                <!--numberpicker:value="-5" />-->
+
+                <!--</LinearLayout>-->
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab_fragCalculator"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginRight="32dp"-->
+        <!--android:src="@drawable/ic_adb_24dp"-->
+        <!--android:elevation="8dp"-->
+        <!--app:layout_anchor="@id/cardview_fragCalculator"-->
+        <!--app:layout_anchorGravity="top|right|end"-->
+        <!--tools:ignore="RtlHardcoded" />-->
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

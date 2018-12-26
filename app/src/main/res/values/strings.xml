@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Bion test</string>
+    <string name="decrement"> - </string>
+    <string name="increment"> + </string>
+    <string name="display">1</string>
+    <string name="settings">Настройки</string>
+
+    <array name="menuOptions">
+        <item>Калькулятор</item>
+        <item>Настройки</item>
+        <item>Сведения</item>
+        <item>О компании</item>
+    </array>
+
+    <array name="plants">
+        <item>Кукуруза</item>
+        <item>Пшеница</item>
+        <item>Силос</item>
+        <item>Картофель</item>
+        <item>Гречка</item>
+        <item>Гречка</item>
+        <item>Фасоль</item>
+        <item>Гречка</item>
+        <item>Пшеница</item>
+        <item>Ячмень</item>
+    </array>
+</resources>

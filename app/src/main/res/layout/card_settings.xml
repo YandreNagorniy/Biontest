@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.example.yandre.biontest.custom.ChemistryView android:id="@+id/cv_settingsItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:sub_title="S"
+    app:title="Сера"
+    app:value="3"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" />

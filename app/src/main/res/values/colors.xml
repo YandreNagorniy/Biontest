@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#FFE0B2</color>-->
+    <!--<color name="colorPrimaryDark">#605442</color>-->
+    <!--<color name="colorAccent">#B3FF80</color>-->
+    <!--<color name="textColorApp">#514028</color>-->
+
+    <color name="colorPrimary">#AED581</color>
+    <color name="colorPrimaryDark">#33691E</color>
+    <color name="colorGray">#CCCCCC	</color>
+    <color name="colorToolbar">#6a9939</color>
+    <color name="colorAccent">#09AF00</color>
+    <color name="textColorApp">#1f2d10</color>
+    <color name="lightGreen">#F1F8E9</color>
+    <color name="background_calculator">#F1F8E9</color>
+
+</resources>
