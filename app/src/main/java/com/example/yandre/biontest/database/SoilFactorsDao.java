@@ -20,6 +20,9 @@ public interface SoilFactorsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(SoilFactorsModel soilFactorsModel);
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertList(List<SoilFactorsModel> soilFactorsModel);
+
     @Query("DELETE FROM soilfactorsmodel WHERE id IS :id")
     void delete(String id);
 

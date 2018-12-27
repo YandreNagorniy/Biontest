@@ -1,10 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-<com.example.yandre.biontest.custom.ChemistryView android:id="@+id/cv_settingsItem"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:sub_title="S"
-    app:title="Сера"
-    app:value="3"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" />
+    <data>
+
+        <variable
+            name="soilFactor"
+            type="com.example.yandre.biontest.pojo.SoilFactorsModel" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:background="@drawable/bg_value">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            tools:text="Натрий"
+            android:text="@{soilFactor.title}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            tools:text="Na"
+            android:layout_marginTop="2dp"
+            android:text="@{soilFactor.subTitle}"
+            android:textColor="@color/textColorApp"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+
+        <EditText
+            android:id="@+id/etValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:inputType="number"
+            android:maxLength="3"
+            tools:text="8"
+            android:text="@{soilFactor.value}"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvSubtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvSubtitle" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

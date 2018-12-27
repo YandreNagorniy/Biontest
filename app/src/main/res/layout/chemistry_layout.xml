@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/element_nameTv"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/elementTv"
+        android:id="@+id/tvSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -26,8 +26,8 @@
         android:text="Na"
         android:textColor="@color/textColorApp"
         android:textSize="32sp"
-        app:layout_constraintStart_toStartOf="@id/element_nameTv"
-        app:layout_constraintTop_toBottomOf="@id/element_nameTv" />
+        app:layout_constraintStart_toStartOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <!--<android.support.constraint.Guideline-->
     <!--android:id="@+id/gLine1"-->
@@ -37,7 +37,7 @@
     <!--app:layout_constraintGuide_percent="0.75" />-->
 
     <EditText
-        android:id="@+id/element_valueEt"
+        android:id="@+id/etValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -46,9 +46,9 @@
         android:textSize="24sp"
         android:layout_marginRight="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/elementTv"
+        app:layout_constraintBottom_toBottomOf="@id/tvSubtitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/elementTv" />
+        app:layout_constraintTop_toTopOf="@id/tvSubtitle" />
 
 
 </android.support.constraint.ConstraintLayout>

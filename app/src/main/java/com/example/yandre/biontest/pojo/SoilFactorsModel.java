@@ -6,6 +6,14 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class SoilFactorsModel {
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -14,20 +22,20 @@ public class SoilFactorsModel {
         this.title = title;
     }
 
-    public String getSubTitle() {
-        return subTitle;
-    }
-
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
-    }
-
     public String getValue() {
         return value;
     }
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getSubTitle() {
+        return subTitle;
+    }
+
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
     }
 
     @PrimaryKey(autoGenerate = true)
@@ -41,5 +49,4 @@ public class SoilFactorsModel {
         this.subTitle = subTitle;
         this.value = value;
     }
-
 }
