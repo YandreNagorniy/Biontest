@@ -28,7 +28,7 @@ public class SoilFactorsAdapter extends RecyclerView.Adapter<SoilFactorsAdapter.
         LayoutInflater inflater = LayoutInflater.from(context);
         CardSettingsBinding binding = DataBindingUtil.inflate(inflater, R.layout.card_settings, viewGroup, false);
 
-        return null;
+        return new ViewHolder(binding);
     }
 
     @Override

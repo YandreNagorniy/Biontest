@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/tvAnalitic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Аналитические методики"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvSoil_factors" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_value"
+        app:layout_constraintEnd_toEndOf="@id/rvSoil_factors"
+        app:layout_constraintStart_toStartOf="@id/rvSoil_factors"
+        app:layout_constraintTop_toBottomOf="@id/tvAnalitic">
+
+        <CheckBox
+            android:id="@+id/cbKirsanov"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Кирсанов (P,K)"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/cbChirikov"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Чириков (P,K)"
+            app:layout_constraintStart_toStartOf="@id/cbKirsanov"
+            app:layout_constraintTop_toBottomOf="@id/cbKirsanov" />
+
+        <CheckBox
+            android:id="@+id/cbMachin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Мачин (P,K)"
+            app:layout_constraintStart_toStartOf="@id/cbKirsanov"
+            app:layout_constraintTop_toBottomOf="@id/cbChirikov" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/gl1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <CheckBox
+            android:id="@+id/cbTurin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Тюрин (N)"
+            app:layout_constraintStart_toStartOf="@id/cbKirsanov"
+            app:layout_constraintTop_toBottomOf="@id/cbMachin" />
+
+        <CheckBox
+            android:id="@+id/cbKononva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Кононова (N)"
+            app:layout_constraintStart_toStartOf="@id/gl1"
+            app:layout_constraintTop_toTopOf="@id/cbKirsanov" />
+
+        <CheckBox
+            android:id="@+id/cbXxx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="XXX (N)"
+            app:layout_constraintStart_toStartOf="@id/cbKononva"
+            app:layout_constraintTop_toBottomOf="@id/cbKononva" />
+
+        <CheckBox
+            android:id="@+id/cbKorifilo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Корифило (N)"
+            app:layout_constraintStart_toStartOf="@id/cbKononva"
+            app:layout_constraintTop_toBottomOf="@id/cbXxx" />
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

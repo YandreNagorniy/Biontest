@@ -30,10 +30,9 @@ public class SettingsFragment extends Fragment implements SettingsView {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_settings, container, false);
         settingsPresenter = new SettingsPresenterImpl(this);
-        binding.rvSoilFactors.setLayoutManager(new LinearLayoutManager(getActivity())); // GridLayoutManager(getActivity(), 3));
+        binding.rvSoilFactors.setLayoutManager(new GridLayoutManager(getActivity(), 3)); // GridLayoutManager(getActivity(), 3));
 
         settingsPresenter.loadSoilFactors();
-
 
         return binding.getRoot();
     }

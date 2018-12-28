@@ -39,21 +39,24 @@ public class SettingsPresenterImpl implements SettingsPresenter {
 
     }
 
-    @Override //Берем начальные значения почыенных факторов
+    @Override //Берем начальные значения почвенных факторов
     public void addStartSoilFactors() {
         soilFactorsModelList = new ArrayList<>();
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "1"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "2"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "5"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "3"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "4"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "5"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "7"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "3"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "9"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "7"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "5"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "subTitle", "8"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "N", "1"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "D", "2"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "K", "5"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "g", "3"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "pH", "4"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Ca", "5"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Mg", "7"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "S", "3"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Mn", "9"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Zn", "7"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "B", "5"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Fe", "8"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Cu", "8"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Mo", "8"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Co", "8"));
         settingsView.displayData(soilFactorsModelList);
 
         //зносим в бд первоначалные значения
