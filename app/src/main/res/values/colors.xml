@@ -5,13 +5,18 @@
     <!--<color name="colorAccent">#B3FF80</color>-->
     <!--<color name="textColorApp">#514028</color>-->
 
-    <color name="colorPrimary">#AED581</color>
-    <color name="colorPrimaryDark">#33691E</color>
+    <!--<color name="colorPrimary">#AED581</color>-->
+    <!--<color name="colorPrimary">#9E9E9E</color>-->
+    <color name="colorPrimary">#388E3C</color>
+    <color name="colorPrimaryDark">#1B5E20</color>
+    <!--<color name="colorPrimaryDark">#33691E</color>-->
     <color name="colorGray">#CCCCCC	</color>
-    <color name="colorToolbar">#6a9939</color>
+    <!--<color name="colorGray">#939393</color>-->
+    <color name="colorToolbar">#2E7D32</color>
     <color name="colorAccent">#09AF00</color>
     <color name="textColorApp">#1f2d10</color>
     <color name="lightGreen">#F1F8E9</color>
+    <color name="lightGray">#FAFAFA</color>
     <color name="background_calculator">#F1F8E9</color>
 
 </resources>

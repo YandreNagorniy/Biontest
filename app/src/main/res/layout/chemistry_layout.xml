@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg_value"
     android:layout_width="match_parent"
-    android:layout_margin="1dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
+    <!--    android:layout_margin="1dp"-->
+    <!--android:background="@drawable/bg_value"-->
 
     <TextView
         android:id="@+id/tvTitle"
@@ -40,12 +41,12 @@
         android:id="@+id/etValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:inputType="number"
         android:maxLength="3"
         android:text="1"
         android:textSize="24sp"
-        android:layout_marginRight="8dp"
-        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@id/tvSubtitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvSubtitle" />

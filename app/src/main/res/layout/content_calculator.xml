@@ -2,6 +2,7 @@
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
@@ -9,13 +10,86 @@
     android:layout_marginBottom="16dp"
     android:orientation="horizontal">
 
+
+    <TextView
+        android:id="@+id/tvUroj"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shadow_top_center_custon"
+        android:padding="8dp"
+        android:elevation="4dp"
+        android:text="Урожайность"
+        android:textAppearance="@style/TextAppearance.Header"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/linLay_numbPick"
+        app:layout_constraintStart_toStartOf="@id/linLay_numbPick"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="lollipop" />
+
+    <LinearLayout
+        android:id="@+id/linLay_numbPick"
+        android:elevation="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/shadow_bottom_center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUroj">
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Урожайность" />-->
+
+        <com.travijuu.numberpicker.library.NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:custom_layout="@layout/number_picker_layout2"
+            app:max="100"
+            app:min="0"
+            app:unit="2"
+            app:value="-5">
+
+        </com.travijuu.numberpicker.library.NumberPicker>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvNeobhod"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow_top_center"
+        android:lines="2"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:elevation="4dp"
+        android:text="@string/neobhod"
+        android:textAppearance="@style/TextAppearance.Header"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvN_frgCalculator"
+        app:layout_constraintTop_toBottomOf="@id/linLay_numbPick" />
+
     <com.example.yandre.biontest.custom.ChemistryView
         android:id="@+id/tvN_frgCalculator"
         android:layout_width="0dp"
+        android:elevation="4dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/shadow_center_left"
         app:layout_constraintEnd_toEndOf="@id/gLine1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNeobhod"
         app:sub_title="N"
         app:title="Азот"
         app:value="7" />
@@ -31,7 +105,9 @@
     <com.example.yandre.biontest.custom.ChemistryView
         android:id="@+id/tvP_frgCalculator"
         android:layout_width="0dp"
+        android:elevation="4dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/shadow_center_right"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/gLine1"
         app:layout_constraintTop_toTopOf="@id/tvN_frgCalculator"
@@ -42,7 +118,10 @@
     <com.example.yandre.biontest.custom.ChemistryView
         android:id="@+id/tvMg_frgCalculator"
         android:layout_width="0dp"
+        android:elevation="4dp"
+
         android:layout_height="wrap_content"
+        android:background="@drawable/shadow_bottom_left"
         app:layout_constraintEnd_toStartOf="@id/gLine1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvK_frgCalculator"
@@ -53,7 +132,10 @@
     <com.example.yandre.biontest.custom.ChemistryView
         android:id="@+id/tvS_frgCalculator"
         android:layout_width="0dp"
+        android:elevation="4dp"
+
         android:layout_height="wrap_content"
+        android:background="@drawable/shadow_bottom_right"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/gLine1"
         app:layout_constraintTop_toTopOf="@id/tvMg_frgCalculator"
@@ -65,7 +147,10 @@
     <com.example.yandre.biontest.custom.ChemistryView
         android:id="@+id/tvK_frgCalculator"
         android:layout_width="0dp"
+        android:elevation="4dp"
+
         android:layout_height="wrap_content"
+        android:background="@drawable/shadow_center_left"
         app:layout_constraintEnd_toStartOf="@id/gLine1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvN_frgCalculator"
@@ -76,8 +161,10 @@
     <com.example.yandre.biontest.custom.ChemistryView
         android:id="@+id/tvCa_frgCalculator"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:elevation="4dp"
 
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow_center_right"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/gLine1"
         app:layout_constraintTop_toTopOf="@id/tvK_frgCalculator"
@@ -102,43 +189,49 @@
     <com.example.yandre.biontest.custom.ChemistryView
         android:id="@+id/tvH2O_frgCalculator"
         android:layout_width="0dp"
+        android:elevation="4dp"
+
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/gLine1"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/shadow_bottom_center"
+        app:layout_constraintEnd_toEndOf="@id/gLine3"
+        app:layout_constraintStart_toStartOf="@id/gLine2"
         app:layout_constraintTop_toBottomOf="@id/tvS_frgCalculator"
         app:sub_title="H2O"
         app:title="Вода"
         app:value="4" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintStart_toStartOf="@id/gLine1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvS_frgCalculator"
-        android:background="@drawable/bg_value"
-        android:orientation="vertical"
-        android:padding="8dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Урожайность" />
-
-        <com.travijuu.numberpicker.library.NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            app:custom_layout="@layout/number_picker_layout2"
-            app:max="100"
-            app:min="0"
-            app:unit="2"
-            app:value="-5">
-
-        </com.travijuu.numberpicker.library.NumberPicker>
-
-    </LinearLayout>
+    <!--<View-->
+    <!--android:id="@+id/v1"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/tvH2O_frgCalculator"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:background="@android:color/black"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_height="1dp"/>-->
 
 
+    <!--<TextView-->
+    <!--android:id="@+id/tvUroj"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="8dp"-->
+    <!--android:layout_marginTop="8dp"-->
+    <!--android:text="Выберите урожайность"-->
+    <!--android:textSize="18sp"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/tvH2O_frgCalculator"-->
+    <!--/>-->
+
+    <!--<com.travijuu.numberpicker.library.NumberPicker-->
+    <!--android:id="@+id/numberPicker"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_marginTop="8dp"-->
+    <!--app:custom_layout="@layout/number_picker_layout2"-->
+    <!--app:layout_constraintStart_toStartOf="@id/tvUroj"-->
+    <!--app:layout_constraintTop_toBottomOf="@id/tvUroj"-->
+    <!--app:max="100"-->
+    <!--app:min="0"-->
+    <!--app:unit="2"-->
+    <!--app:value="-5"/>-->
 </android.support.constraint.ConstraintLayout>

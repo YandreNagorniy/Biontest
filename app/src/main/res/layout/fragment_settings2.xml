@@ -40,8 +40,6 @@
                 android:padding="16dp"
                 android:text="Почвенные факторы"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/frameLay_settings" />
 
             <android.support.v7.widget.RecyclerView
@@ -65,7 +63,6 @@
                 android:text="Гидротермические факторы"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rvSoil_factors" />
 
 
@@ -73,7 +70,7 @@
                 android:id="@+id/clGidroTerm"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_rounder_sqare"
+                android:background="@drawable/bg_value"
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="@id/rvSoil_factors"
                 app:layout_constraintStart_toStartOf="@id/rvSoil_factors"
@@ -107,13 +104,12 @@
                 android:text="Аналитические методики"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/clGidroTerm" />
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_rounder_sqare"
+                android:background="@drawable/bg_value"
                 app:layout_constraintEnd_toEndOf="@id/rvSoil_factors"
                 app:layout_constraintStart_toStartOf="@id/rvSoil_factors"
                 app:layout_constraintTop_toBottomOf="@id/tvAnalitic">
