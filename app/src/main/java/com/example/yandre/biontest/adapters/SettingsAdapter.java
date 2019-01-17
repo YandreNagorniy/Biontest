@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yandre.biontest.R;
@@ -13,32 +14,31 @@ import com.example.yandre.biontest.pojo.SoilFactorsModel;
 
 import java.util.List;
 
-public class SoilFactorsAdapter extends RecyclerView.Adapter<SoilFactorsAdapter.ViewHolder> {
+public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHolder> {
     private List<SoilFactorsModel> soilFactorsModelList;
     private Context context;
 
-    public SoilFactorsAdapter(Context context, List<SoilFactorsModel> soilFactorsModelList) {
-        this.context = context;
+    public SettingsAdapter( Context context, List<SoilFactorsModel> soilFactorsModelList) {
         this.soilFactorsModelList = soilFactorsModelList;
+        this.context = context;
     }
 
     @NonNull
     @Override
-    public SoilFactorsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public SettingsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(context);
         CardSettingsBinding binding = DataBindingUtil.inflate(inflater, R.layout.card_settings, viewGroup, false);
-
         return new ViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SoilFactorsAdapter.ViewHolder holder, int position) {
-        holder.binding.setSoilFactor(soilFactorsModelList.get(position));
+    public void onBindViewHolder(@NonNull SettingsAdapter.ViewHolder holder, int position) {
+        holder.binding.setFactor(soilFactorsModelList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return soilFactorsModelList.size();
+        return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -50,3 +50,4 @@ public class SoilFactorsAdapter extends RecyclerView.Adapter<SoilFactorsAdapter.
         }
     }
 }
+

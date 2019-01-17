@@ -10,25 +10,27 @@ import com.example.yandre.biontest.pojo.SoilFactorsModel;
 import java.util.List;
 
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 
 @Dao
 public interface SoilFactorsDao {
 
-    @Query("SELECT * FROM soilfactorsmodel")
+    @Query("SELECT * FROM SoilFactorsModel")
     Flowable<List<SoilFactorsModel>> getSoilFactors();
+
+    @Query("SELECT * FROM SoilFactorsModel WHERE id IS :id")
+    Single<SoilFactorsModel> getSoilFactor(long id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(SoilFactorsModel soilFactorsModel);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertList(List<SoilFactorsModel> soilFactorsModel);
+    void insertList(List<SoilFactorsModel> soilFactorsModels);
 
-    @Query("DELETE FROM soilfactorsmodel WHERE id IS :id")
+    @Query("DELETE FROM SoilFactorsModel WHERE id IS :id")
     void delete(String id);
 
 
-    //    @Query("SELECT * FROM usersresponse WHERE login IS :login")
-//    Single<UsersResponse> getUser(String login);
 //        @Update
-//    void update(SoilFactorsModel user);
+//    void update(SettingsModel user);
 }

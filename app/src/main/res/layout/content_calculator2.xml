@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:orientation="vertical"
+    android:paddingBottom="16dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_rounder_sqare"
+        android:backgroundTint="@color/background_color_tile"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvUroj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            android:text="Урожайность"
+            android:textAppearance="@style/TextAppearance.Header" />
+
+        <com.travijuu.numberpicker.library.NumberPicker
+            android:id="@+id/numbPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_rounder_sqare"
+            android:padding="8dp"
+            app:custom_layout="@layout/number_picker_layout2"
+            app:max="100"
+            app:min="0"
+            app:unit="2"
+            app:value="-5">
+        </com.travijuu.numberpicker.library.NumberPicker>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_rounder_sqare"
+        android:backgroundTint="@color/background_color_tile"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvNeobhod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-light"
+            android:padding="16dp"
+            android:text="@string/neobhod"
+            android:textAppearance="@style/TextAppearance.Header" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.yandre.biontest.custom.ChemistryView
+                android:id="@+id/tvN_frgCalculator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow_top_left"
+                app:layout_constraintEnd_toEndOf="@id/gLine1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:sub_title="N"
+                app:title="Азот"
+                app:value="7" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/gLine1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/colorToolbar"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <com.example.yandre.biontest.custom.ChemistryView
+                android:id="@+id/tvP_frgCalculator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow_top_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/gLine1"
+                app:layout_constraintTop_toTopOf="@id/tvN_frgCalculator"
+                app:sub_title="S"
+                app:title="Сера"
+                app:value="4" />
+
+            <com.example.yandre.biontest.custom.ChemistryView
+                android:id="@+id/tvMg_frgCalculator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow_bottom_left"
+                app:layout_constraintEnd_toStartOf="@id/gLine1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvK_frgCalculator"
+                app:sub_title="K2O"
+                app:title="Магний"
+                app:value="8" />
+
+            <com.example.yandre.biontest.custom.ChemistryView
+                android:id="@+id/tvS_frgCalculator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow_bottom_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/gLine1"
+                app:layout_constraintTop_toTopOf="@id/tvMg_frgCalculator"
+                app:sub_title="Mg"
+                app:title="Магний"
+                app:value="3" />
+
+
+            <com.example.yandre.biontest.custom.ChemistryView
+                android:id="@+id/tvK_frgCalculator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow_center_left"
+                app:layout_constraintEnd_toStartOf="@id/gLine1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvN_frgCalculator"
+                app:sub_title="P2O5"
+                app:title="Калий"
+                app:value="1" />
+
+            <com.example.yandre.biontest.custom.ChemistryView
+                android:id="@+id/tvCa_frgCalculator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow_center_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/gLine1"
+                app:layout_constraintTop_toTopOf="@id/tvK_frgCalculator"
+                app:sub_title="Ca"
+                app:title="Кальций"
+                app:value="4" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/gLine2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/gLine3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <com.example.yandre.biontest.custom.ChemistryView
+                android:id="@+id/tvH2O_frgCalculator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow_bottom_center"
+                app:layout_constraintEnd_toEndOf="@id/gLine3"
+                app:layout_constraintStart_toStartOf="@id/gLine2"
+                app:layout_constraintTop_toBottomOf="@id/tvS_frgCalculator"
+                app:sub_title="H2O"
+                app:title="Вода"
+                app:value="4" />
+
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+</LinearLayout>
+

@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="soilFactor"
+            name="factor"
             type="com.example.yandre.biontest.pojo.SoilFactorsModel" />
     </data>
 
@@ -25,7 +25,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             tools:text="Натрий"
-            android:text="@{soilFactor.title}"
+            android:text="@{factor.title}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +36,7 @@
             android:layout_marginLeft="8dp"
             tools:text="Na"
             android:layout_marginTop="2dp"
-            android:text="@{soilFactor.subTitle}"
+            android:text="@{factor.subTitle}"
             android:textColor="@color/textColorApp"
             android:textSize="32sp"
             app:layout_constraintStart_toStartOf="@id/tvTitle"
@@ -52,12 +52,11 @@
             android:inputType="number"
             android:maxLength="3"
             tools:text="8"
-            android:text="@{soilFactor.value}"
+            android:text="@{factor.value}"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@id/tvSubtitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvSubtitle" />
-
 
     </android.support.constraint.ConstraintLayout>
 

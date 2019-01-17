@@ -16,6 +16,7 @@
             android:id="@+id/appBar_fragCalculator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:background="@drawable/rounder_bottom"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -24,7 +25,7 @@
                 style="@style/ToolBarWithNavigationBack"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:contentScrim="?colorPrimary"
+                app:contentScrim="?colorPrimaryDark"
                 app:expandedTitleMarginBottom="64dp"
                 app:expandedTitleTextAppearance="@style/CollapsingTextAppearance.Inverse"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -62,45 +63,36 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:elevation="4dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/bg_rounder_sqare"
+                    android:elevation="2dp"
                     android:orientation="vertical"
                     android:padding="8dp">
 
                     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                         android:id="@+id/spinner"
                         android:layout_width="match_parent"
-                        android:layout_gravity="center"
-                        android:gravity="center"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:entries="@array/plants"
+                        android:gravity="center"
                         android:textSize="32sp"
                         app:hintText="Выберите культуру" />
                 </LinearLayout>
 
-
-                <include layout="@layout/content_calculator" />
-
+                <include layout="@layout/content_calculator2" />
 
             </LinearLayout>
 
-
         </android.support.v4.widget.NestedScrollView>
 
-        <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/fab_fragCalculator"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginRight="32dp"-->
-        <!--android:src="@drawable/ic_adb_24dp"-->
-        <!--android:elevation="8dp"-->
-        <!--app:layout_anchor="@id/cardview_fragCalculator"-->
-        <!--app:layout_anchorGravity="top|right|end"-->
-        <!--tools:ignore="RtlHardcoded" />-->
     </android.support.design.widget.CoordinatorLayout>
+
 </layout>
+
+
+    <!--<android.support.design.widget.FloatingActionButton--><!--android:id="@+id/fab_fragCalculator"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_marginRight="32dp"--><!--android:src="@drawable/ic_adb_24dp"--><!--android:elevation="8dp"--><!--app:layout_anchor="@id/cardview_fragCalculator"--><!--app:layout_anchorGravity="top|right|end"--><!--tools:ignore="RtlHardcoded" />-->

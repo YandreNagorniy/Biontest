@@ -10,7 +10,6 @@ import java.util.List;
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class SettingsPresenterImpl implements SettingsPresenter {
@@ -30,6 +29,7 @@ public class SettingsPresenterImpl implements SettingsPresenter {
         disposable = soilFactorsDao.getSoilFactors()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(settingsView::displayData, Throwable::printStackTrace);
+
 //        subscribe(soilFactorsModels -> settingsView.displayData(soilFactorsModels),
 //                        Throwable::printStackTrace);
     }
@@ -42,21 +42,21 @@ public class SettingsPresenterImpl implements SettingsPresenter {
     @Override //Берем начальные значения почвенных факторов
     public void addStartSoilFactors() {
         soilFactorsModelList = new ArrayList<>();
-        soilFactorsModelList.add(new SoilFactorsModel("title", "N", "1"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "D", "2"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "K", "5"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "g", "3"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "pH", "4"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "Ca", "5"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "Mg", "7"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "S", "3"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "Mn", "9"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "Zn", "7"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "B", "5"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "Fe", "8"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "Cu", "8"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "Mo", "8"));
-        soilFactorsModelList.add(new SoilFactorsModel("title", "Co", "8"));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "g", 3));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "pH", 4));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "N", 1));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "D", 2));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "K", 5));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Ca", 5));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Mg", 7));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "S", 3));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Mn", 9));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Zn", 7));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "B", 5));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Fe", 8));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Cu", 8));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Mo", 8));
+        soilFactorsModelList.add(new SoilFactorsModel("title", "Co", 8));
         settingsView.displayData(soilFactorsModelList);
 
         //зносим в бд первоначалные значения

@@ -3,8 +3,21 @@ package com.example.yandre.biontest.pojo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+//Почвенные факторы
 @Entity
 public class SoilFactorsModel {
+
+    @PrimaryKey(autoGenerate = true)
+    private long id;
+    private String title;
+    private String subTitle;
+    private int value;
+
+    public SoilFactorsModel(String title, String subTitle, int value) {
+        this.title = title;
+        this.subTitle = subTitle;
+        this.value = value;
+    }
 
     public long getId() {
         return id;
@@ -22,14 +35,6 @@ public class SoilFactorsModel {
         this.title = title;
     }
 
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
     public String getSubTitle() {
         return subTitle;
     }
@@ -38,15 +43,11 @@ public class SoilFactorsModel {
         this.subTitle = subTitle;
     }
 
-    @PrimaryKey(autoGenerate = true)
-    private long id;
-    private String title;
-    private String subTitle;
-    private String value;
+    public int getValue() {
+        return value;
+    }
 
-    public SoilFactorsModel(String title, String subTitle, String value) {
-        this.title = title;
-        this.subTitle = subTitle;
+    public void setValue(int value) {
         this.value = value;
     }
 }

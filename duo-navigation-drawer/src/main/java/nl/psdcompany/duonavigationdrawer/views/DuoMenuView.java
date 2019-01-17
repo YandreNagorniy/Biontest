@@ -1,5 +1,6 @@
 package nl.psdcompany.duonavigationdrawer.views;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
@@ -34,8 +35,10 @@ public class DuoMenuView extends RelativeLayout {
     private static final String TAG_FOOTER = "footer";
     private static final String TAG_HEADER = "header";
 
+    @SuppressLint("ResourceType")
     @DrawableRes
     private static final int DEFAULT_DRAWABLE_ATTRIBUTE_VALUE = 0b11111111111111110010101111001111;
+    @SuppressLint("ResourceType")
     @LayoutRes
     private static final int DEFAULT_LAYOUT_ATTRIBUTE_VALUE = 0b11111111111111110010101111010000;
 
