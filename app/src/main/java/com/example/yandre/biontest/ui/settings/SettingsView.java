@@ -1,6 +1,6 @@
 package com.example.yandre.biontest.ui.settings;
 
-import com.example.yandre.biontest.pojo.SoilFactorsModel;
+import com.example.yandre.biontest.database.model.SoilFactorsModel;
 
 import java.util.List;
 

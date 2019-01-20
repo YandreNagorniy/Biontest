@@ -1,21 +1,16 @@
-package com.example.yandre.biontest.pojo;
+package com.example.yandre.biontest.database.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-//Расчет потребности в осадках
+//Водопотребление
 @Entity
-public class PotrebOsadkiModel {
-    public PotrebOsadkiModel(long id, String culture, int value) {
+public class VodopotrebModel {
+    public VodopotrebModel(long id, String culture, int value) {
         this.id = id;
         this.culture = culture;
         this.value = value;
     }
-
-    @PrimaryKey(autoGenerate = true)
-    private long id;
-    private String culture;
-    private int value;
 
     public long getId() {
         return id;
@@ -40,4 +35,9 @@ public class PotrebOsadkiModel {
     public void setValue(int value) {
         this.value = value;
     }
+
+    @PrimaryKey(autoGenerate = true)
+    private long id;
+    private String culture;
+    private int value;
 }

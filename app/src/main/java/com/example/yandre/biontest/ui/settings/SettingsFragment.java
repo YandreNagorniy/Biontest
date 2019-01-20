@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.example.yandre.biontest.R;
 import com.example.yandre.biontest.adapters.SettingsAdapter;
 import com.example.yandre.biontest.databinding.FragmentSettingsBinding;
-import com.example.yandre.biontest.pojo.SoilFactorsModel;
+import com.example.yandre.biontest.database.model.SoilFactorsModel;
 
 import java.util.List;
 

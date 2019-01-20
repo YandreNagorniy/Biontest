@@ -1,11 +1,11 @@
-package com.example.yandre.biontest.database;
+package com.example.yandre.biontest.database.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.example.yandre.biontest.pojo.MethodsModel;
+import com.example.yandre.biontest.database.model.MethodsModel;
 
 import java.util.List;
 

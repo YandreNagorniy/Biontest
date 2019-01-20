@@ -1,8 +1,8 @@
 package com.example.yandre.biontest.ui.settings;
 
 import com.example.yandre.biontest.App;
-import com.example.yandre.biontest.database.SoilFactorsDao;
-import com.example.yandre.biontest.pojo.SoilFactorsModel;
+import com.example.yandre.biontest.database.dao.SoilFactorsDao;
+import com.example.yandre.biontest.database.model.SoilFactorsModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,9 +57,9 @@ public class SettingsPresenterImpl implements SettingsPresenter {
         soilFactorsModelList.add(new SoilFactorsModel("title", "Cu", 8));
         soilFactorsModelList.add(new SoilFactorsModel("title", "Mo", 8));
         soilFactorsModelList.add(new SoilFactorsModel("title", "Co", 8));
-        settingsView.displayData(soilFactorsModelList);
+      //  settingsView.displayData(soilFactorsModelList);
 
-        //зносим в бд первоначалные значения
+        //зaносим в бд первоначалные значения
         Completable.fromAction(() -> soilFactorsDao.insertList(soilFactorsModelList))
                 .subscribeOn(Schedulers.io())
                 .subscribe();

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "6089ce700273227a76d296f93b9a22d4",
+    "identityHash": "8ef0089824aae7a913bf9a2321d12b61",
     "entities": [
       {
         "tableName": "SoilFactorsModel",
@@ -41,11 +41,805 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "KUsvModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `N` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `Ca` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL, `Zn` REAL NOT NULL, `Mo` REAL NOT NULL, `Cu` REAL NOT NULL, `Mn` REAL NOT NULL, `Co` REAL NOT NULL, `B` REAL NOT NULL, `Fe` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "culture",
+            "columnName": "culture",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N",
+            "columnName": "N",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "P2O5",
+            "columnName": "P2O5",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "K2O",
+            "columnName": "K2O",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Ca",
+            "columnName": "Ca",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "MgO",
+            "columnName": "MgO",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "S",
+            "columnName": "S",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Zn",
+            "columnName": "Zn",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Mo",
+            "columnName": "Mo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Cu",
+            "columnName": "Cu",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Mn",
+            "columnName": "Mn",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Co",
+            "columnName": "Co",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "B",
+            "columnName": "B",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Fe",
+            "columnName": "Fe",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "CalculatorModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `N` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `CaO` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL, `H20` REAL NOT NULL, `seasonPrecipitation` REAL NOT NULL, `zpv` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "N",
+            "columnName": "N",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "P2O5",
+            "columnName": "P2O5",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "K2O",
+            "columnName": "K2O",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "CaO",
+            "columnName": "CaO",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "MgO",
+            "columnName": "MgO",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "S",
+            "columnName": "S",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "H20",
+            "columnName": "H20",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "seasonPrecipitation",
+            "columnName": "seasonPrecipitation",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "zpv",
+            "columnName": "zpv",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "PhasesModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `name` TEXT, `value` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "culture",
+            "columnName": "culture",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "PHModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `ph` REAL NOT NULL, `N` REAL NOT NULL, `P` REAL NOT NULL, `K` REAL NOT NULL, `Ca` REAL NOT NULL, `Mg` REAL NOT NULL, `S` REAL NOT NULL, `Zn` REAL NOT NULL, `Mo` REAL NOT NULL, `Cu` REAL NOT NULL, `Mn` REAL NOT NULL, `Co` REAL NOT NULL, `B` REAL NOT NULL, `Fe` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ph",
+            "columnName": "ph",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "N",
+            "columnName": "N",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "P",
+            "columnName": "P",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "K",
+            "columnName": "K",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Ca",
+            "columnName": "Ca",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Mg",
+            "columnName": "Mg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "S",
+            "columnName": "S",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Zn",
+            "columnName": "Zn",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Mo",
+            "columnName": "Mo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Cu",
+            "columnName": "Cu",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Mn",
+            "columnName": "Mn",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Co",
+            "columnName": "Co",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "B",
+            "columnName": "B",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Fe",
+            "columnName": "Fe",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "PotrebOsadkiModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `value` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "culture",
+            "columnName": "culture",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "VinosModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `N` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `Ca` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "culture",
+            "columnName": "culture",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N",
+            "columnName": "N",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "P2O5",
+            "columnName": "P2O5",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "K2O",
+            "columnName": "K2O",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Ca",
+            "columnName": "Ca",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "MgO",
+            "columnName": "MgO",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "S",
+            "columnName": "S",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "VodopotrebModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `value` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "culture",
+            "columnName": "culture",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Method1Model",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `grade` TEXT, `kirsanovMin` REAL NOT NULL, `kirsanovMax` REAL NOT NULL, `chirikovMin` REAL NOT NULL, `chirikovMax` REAL NOT NULL, `machiginMin` REAL NOT NULL, `machiginMax` REAL NOT NULL, `indexKirsanov` REAL NOT NULL, `indexChirikov` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "grade",
+            "columnName": "grade",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "kirsanovMin",
+            "columnName": "kirsanovMin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kirsanovMax",
+            "columnName": "kirsanovMax",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "chirikovMin",
+            "columnName": "chirikovMin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "chirikovMax",
+            "columnName": "chirikovMax",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "machiginMin",
+            "columnName": "machiginMin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "machiginMax",
+            "columnName": "machiginMax",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "indexKirsanov",
+            "columnName": "indexKirsanov",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "indexChirikov",
+            "columnName": "indexChirikov",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Method2Model",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `grade` TEXT, `tyrinMin` REAL NOT NULL, `tyrinMax` REAL NOT NULL, `kornfildMin` REAL NOT NULL, `kornfildMax` REAL NOT NULL, `mineralMin` REAL NOT NULL, `mineralMax` REAL NOT NULL, `indexTyrin` REAL NOT NULL, `indexKornfild` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "grade",
+            "columnName": "grade",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tyrinMin",
+            "columnName": "tyrinMin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tyrinMax",
+            "columnName": "tyrinMax",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kornfildMin",
+            "columnName": "kornfildMin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kornfildMax",
+            "columnName": "kornfildMax",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mineralMin",
+            "columnName": "mineralMin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mineralMax",
+            "columnName": "mineralMax",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "indexTyrin",
+            "columnName": "indexTyrin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "indexKornfild",
+            "columnName": "indexKornfild",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "MethodsModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `K2Oid` INTEGER, `K2Ograde` TEXT, `K2OkirsanovMin` REAL, `K2OkirsanovMax` REAL, `K2OchirikovMin` REAL, `K2OchirikovMax` REAL, `K2OmachiginMin` REAL, `K2OmachiginMax` REAL, `K2OindexKirsanov` REAL, `K2OindexChirikov` REAL, `P2O5id` INTEGER, `P2O5grade` TEXT, `P2O5kirsanovMin` REAL, `P2O5kirsanovMax` REAL, `P2O5chirikovMin` REAL, `P2O5chirikovMax` REAL, `P2O5machiginMin` REAL, `P2O5machiginMax` REAL, `P2O5indexKirsanov` REAL, `P2O5indexChirikov` REAL, `Nid` INTEGER, `Ngrade` TEXT, `NtyrinMin` REAL, `NtyrinMax` REAL, `NkornfildMin` REAL, `NkornfildMax` REAL, `NmineralMin` REAL, `NmineralMax` REAL, `NindexTyrin` REAL, `NindexKornfild` REAL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "K2O.id",
+            "columnName": "K2Oid",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "K2O.grade",
+            "columnName": "K2Ograde",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "K2O.kirsanovMin",
+            "columnName": "K2OkirsanovMin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "K2O.kirsanovMax",
+            "columnName": "K2OkirsanovMax",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "K2O.chirikovMin",
+            "columnName": "K2OchirikovMin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "K2O.chirikovMax",
+            "columnName": "K2OchirikovMax",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "K2O.machiginMin",
+            "columnName": "K2OmachiginMin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "K2O.machiginMax",
+            "columnName": "K2OmachiginMax",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "K2O.indexKirsanov",
+            "columnName": "K2OindexKirsanov",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "K2O.indexChirikov",
+            "columnName": "K2OindexChirikov",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "P2O5.id",
+            "columnName": "P2O5id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "P2O5.grade",
+            "columnName": "P2O5grade",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "P2O5.kirsanovMin",
+            "columnName": "P2O5kirsanovMin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "P2O5.kirsanovMax",
+            "columnName": "P2O5kirsanovMax",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "P2O5.chirikovMin",
+            "columnName": "P2O5chirikovMin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "P2O5.chirikovMax",
+            "columnName": "P2O5chirikovMax",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "P2O5.machiginMin",
+            "columnName": "P2O5machiginMin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "P2O5.machiginMax",
+            "columnName": "P2O5machiginMax",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "P2O5.indexKirsanov",
+            "columnName": "P2O5indexKirsanov",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "P2O5.indexChirikov",
+            "columnName": "P2O5indexChirikov",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N.id",
+            "columnName": "Nid",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N.grade",
+            "columnName": "Ngrade",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N.tyrinMin",
+            "columnName": "NtyrinMin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N.tyrinMax",
+            "columnName": "NtyrinMax",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N.kornfildMin",
+            "columnName": "NkornfildMin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N.kornfildMax",
+            "columnName": "NkornfildMax",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N.mineralMin",
+            "columnName": "NmineralMin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N.mineralMax",
+            "columnName": "NmineralMax",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N.indexTyrin",
+            "columnName": "NindexTyrin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "N.indexKornfild",
+            "columnName": "NindexKornfild",
+            "affinity": "REAL",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"6089ce700273227a76d296f93b9a22d4\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8ef0089824aae7a913bf9a2321d12b61\")"
     ]
   }
 }

@@ -1,4 +1,4 @@
-package com.example.yandre.biontest.pojo;
+package com.example.yandre.biontest.database.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
@@ -15,11 +15,10 @@ public class Method1Model {
     private double chirikovMax;
     private double machiginMin;
     private double machiginMax;
-    private double kKirsanov;
-    private double kChirikovov;
+    private double indexKirsanov;
+    private double indexChirikov;
 
-    public Method1Model(long id, String grade, double kirsanovMin, double kirsanovMax, double chirikovMin, double chirikovMax, double machiginMin, double machiginMax, double kKirsanov, double kChirikovov) {
-        this.id = id;
+    public Method1Model(String grade, double kirsanovMin , double kirsanovMax, double chirikovMin, double chirikovMax, double machiginMin, double machiginMax, double indexKirsanov, double indexChirikov) {
         this.grade = grade;
         this.kirsanovMin = kirsanovMin;
         this.kirsanovMax = kirsanovMax;
@@ -27,8 +26,8 @@ public class Method1Model {
         this.chirikovMax = chirikovMax;
         this.machiginMin = machiginMin;
         this.machiginMax = machiginMax;
-        this.kKirsanov = kKirsanov;
-        this.kChirikovov = kChirikovov;
+        this.indexKirsanov = indexKirsanov;
+        this.indexChirikov = indexChirikov;
     }
 
     public long getId() {
@@ -94,20 +93,19 @@ public class Method1Model {
     public void setMachiginMax(double machiginMax) {
         this.machiginMax = machiginMax;
     }
-
-    public double getkKirsanov() {
-        return kKirsanov;
+    public double getIndexChirikov() {
+        return indexChirikov;
     }
 
-    public void setkKirsanov(double kKirsanov) {
-        this.kKirsanov = kKirsanov;
+    public void setIndexChirikov(double indexChirikov) {
+        this.indexChirikov = indexChirikov;
     }
 
-    public double getkChirikovov() {
-        return kChirikovov;
+    public double getIndexKirsanov() {
+        return indexKirsanov;
     }
 
-    public void setkChirikovov(double kChirikovov) {
-        this.kChirikovov = kChirikovov;
+    public void setIndexKirsanov(double indexKirsanov) {
+        this.indexKirsanov = indexKirsanov;
     }
 }
