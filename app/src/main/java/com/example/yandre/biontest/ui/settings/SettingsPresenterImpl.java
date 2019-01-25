@@ -10,6 +10,7 @@ import java.util.List;
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class SettingsPresenterImpl implements SettingsPresenter {
@@ -28,7 +29,13 @@ public class SettingsPresenterImpl implements SettingsPresenter {
     public void loadSoilFactors() {
         disposable = soilFactorsDao.getSoilFactors()
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(settingsView::displayData, Throwable::printStackTrace);
+//                .subscribe(settingsView::displayData, Throwable::printStackTrace);
+                .subscribe(new Consumer<List<SoilFactorsModel>>() {
+                    @Override
+                    public void accept(List<SoilFactorsModel> soilFactorsModels) throws Exception {
+                        settingsView.displayData(soilFactorsModels);
+                    }
+                });
 
 //        subscribe(soilFactorsModels -> settingsView.displayData(soilFactorsModels),
 //                        Throwable::printStackTrace);
@@ -57,7 +64,7 @@ public class SettingsPresenterImpl implements SettingsPresenter {
         soilFactorsModelList.add(new SoilFactorsModel("title", "Cu", 8));
         soilFactorsModelList.add(new SoilFactorsModel("title", "Mo", 8));
         soilFactorsModelList.add(new SoilFactorsModel("title", "Co", 8));
-      //  settingsView.displayData(soilFactorsModelList);
+        //  settingsView.displayData(soilFactorsModelList);
 
         //зaносим в бд первоначалные значения
         Completable.fromAction(() -> soilFactorsDao.insertList(soilFactorsModelList))

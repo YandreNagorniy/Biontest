@@ -106,6 +106,7 @@
                         android:layout_height="wrap_content"
                         android:text="Осадки за сезон"
                         android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toBottomOf="@id/etOsadki"
                         app:layout_constraintTop_toTopOf="@id/etOsadki" />
 
@@ -125,6 +126,7 @@
                         android:layout_marginTop="8dp"
                         android:text="ЗПВ"
                         android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toBottomOf="@id/etZPV_mm"
                         app:layout_constraintTop_toTopOf="@id/etZPV_mm" />
 
@@ -226,6 +228,8 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/colorLightGray"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cbMineral" />
 
                     <TextView
@@ -273,10 +277,12 @@
 
                     <View
                         android:id="@+id/v2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/colorLightGray"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cbKirsanov_P" />
 
                     <TextView

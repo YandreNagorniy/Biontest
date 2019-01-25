@@ -24,6 +24,7 @@ public class KUsvModel {
     private double B;
     private double Fe;
 
+
     public KUsvModel(String culture, double N, double P2O5, double K2O, double Ca, double MgO,
                      double S, double Zn, double Mo, double Cu, double Mn, double Co, double B, double Fe) {
         this.culture = culture;

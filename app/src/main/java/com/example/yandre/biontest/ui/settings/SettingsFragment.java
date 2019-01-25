@@ -12,7 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yandre.biontest.R;
-import com.example.yandre.biontest.adapters.SettingsAdapter;
+import com.example.yandre.biontest.adapters.SoilFactorsAdapter;
+import com.example.yandre.biontest.adapters.TSoilFactorsAdapter;
 import com.example.yandre.biontest.databinding.FragmentSettingsBinding;
 import com.example.yandre.biontest.database.model.SoilFactorsModel;
 
@@ -29,8 +30,8 @@ public class SettingsFragment extends Fragment implements SettingsView {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_settings, container, false);
         settingsPresenter = new SettingsPresenterImpl(this);
-        binding.rvSoilFactors.setLayoutManager(new GridLayoutManager(getActivity(), 3));
 
+        binding.rvSoilFactors.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         settingsPresenter.loadSoilFactors();
 
         return binding.getRoot();
@@ -39,9 +40,9 @@ public class SettingsFragment extends Fragment implements SettingsView {
     @Override
     public void displayData(List<SoilFactorsModel> soilList) {
         if (soilList.size() == 0) {
-            settingsPresenter.addStartSoilFactors();
+//            нету данных по почве
         }
-        RecyclerView.Adapter adapter = new SettingsAdapter(getActivity(), soilList);
+        RecyclerView.Adapter adapter = new TSoilFactorsAdapter(getActivity(), soilList);
         binding.rvSoilFactors.setAdapter(adapter);
     }
 }

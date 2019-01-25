@@ -8,6 +8,21 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class MethodsModel {
 
+    @PrimaryKey(autoGenerate = true)
+    private long id;
+    @Embedded(prefix = "K2O")
+    private Method1Model K2O;
+    @Embedded(prefix = "P2O5")
+    private Method1Model P2O5;
+    @Embedded(prefix = "N")
+    private Method2Model N;
+
+    public MethodsModel( Method1Model K2O, Method1Model P2O5, Method2Model N) {
+        this.K2O = K2O;
+        this.P2O5 = P2O5;
+        this.N = N;
+    }
+
     public long getId() {
         return id;
     }
@@ -40,19 +55,4 @@ public class MethodsModel {
         N = n;
     }
 
-    @PrimaryKey(autoGenerate = true)
-    private long id;
-    @Embedded(prefix = "K2O")
-    private Method1Model K2O;
-    @Embedded(prefix = "P2O5")
-    private Method1Model P2O5;
-    @Embedded(prefix = "N")
-    private Method2Model N;
-
-    public MethodsModel(long id, Method1Model K2O, Method1Model P2O5, Method2Model N) {
-        this.id = id;
-        this.K2O = K2O;
-        this.P2O5 = P2O5;
-        this.N = N;
-    }
 }
