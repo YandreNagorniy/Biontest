@@ -4,7 +4,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity
-public class P2O5MethodsModel {
+public class MethodsK2OModel {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
@@ -18,7 +18,7 @@ public class P2O5MethodsModel {
     private double indexKirsanov;
     private double indexChirikov;
 
-    public P2O5MethodsModel(String grade, double kirsanovMin , double kirsanovMax, double chirikovMin, double chirikovMax, double machiginMin, double machiginMax, double indexKirsanov, double indexChirikov) {
+    public MethodsK2OModel(String grade, double kirsanovMin , double kirsanovMax, double chirikovMin, double chirikovMax, double machiginMin, double machiginMax, double indexKirsanov, double indexChirikov) {
         this.grade = grade;
         this.kirsanovMin = kirsanovMin;
         this.kirsanovMax = kirsanovMax;

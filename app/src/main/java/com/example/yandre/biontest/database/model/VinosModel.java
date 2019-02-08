@@ -8,18 +8,18 @@ import android.arch.persistence.room.PrimaryKey;
 public class VinosModel {
     @PrimaryKey(autoGenerate = true)
     private long id;
-    private String culture;
-    private double N;
+    private String vinosCulture;
+    private double vinosN;
     private double P2O5;
     private double K2O;
     private double Ca;
     private double MgO;
     private double S;
 
-    public VinosModel(String culture, double N, double P2O5, double K2O, double Ca, double MgO, double S) {
+    public VinosModel(String vinosCulture, double vinosN, double P2O5, double K2O, double Ca, double MgO, double S) {
 
-        this.culture = culture;
-        this.N = N;
+        this.vinosCulture = vinosCulture;
+        this.vinosN = vinosN;
         this.P2O5 = P2O5;
         this.K2O = K2O;
         this.Ca = Ca;
@@ -36,19 +36,19 @@ public class VinosModel {
     }
 
     public String getCulture() {
-        return culture;
+        return vinosCulture;
     }
 
     public void setCulture(String culture) {
-        this.culture = culture;
+        this.vinosCulture = vinosCulture;
     }
 
     public double getN() {
-        return N;
+        return vinosN;
     }
 
     public void setN(double N) {
-        this.N = N;
+        this.vinosN = vinosN;
     }
 
     public double getP2O5() {

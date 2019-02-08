@@ -8,6 +8,9 @@ import com.example.yandre.biontest.database.dao.KUsvDao;
 import com.example.yandre.biontest.database.dao.Method1Dao;
 import com.example.yandre.biontest.database.dao.Method2Dao;
 import com.example.yandre.biontest.database.dao.MethodsDao;
+import com.example.yandre.biontest.database.dao.MethodsK2ODao;
+import com.example.yandre.biontest.database.dao.MethodsNDao;
+import com.example.yandre.biontest.database.dao.MethodsP2O5Dao;
 import com.example.yandre.biontest.database.dao.PHDao;
 import com.example.yandre.biontest.database.dao.PhasesDao;
 import com.example.yandre.biontest.database.dao.PotrebOsadkiDao;
@@ -18,7 +21,10 @@ import com.example.yandre.biontest.database.model.CalculatorModel;
 import com.example.yandre.biontest.database.model.KUsvModel;
 import com.example.yandre.biontest.database.model.Method1Model;
 import com.example.yandre.biontest.database.model.Method2Model;
+import com.example.yandre.biontest.database.model.MethodsK2OModel;
 import com.example.yandre.biontest.database.model.MethodsModel;
+import com.example.yandre.biontest.database.model.MethodsNModel;
+import com.example.yandre.biontest.database.model.MethodsP2O5Model;
 import com.example.yandre.biontest.database.model.PHModel;
 import com.example.yandre.biontest.database.model.PhasesModel;
 import com.example.yandre.biontest.database.model.PotrebOsadkiModel;
@@ -32,7 +38,7 @@ import com.example.yandre.biontest.database.model.VodopotrebModel;
 
 @Database(entities = {SoilFactorsModel.class, KUsvModel.class, CalculatorModel.class,
         PhasesModel.class, PHModel.class, PotrebOsadkiModel.class, VinosModel.class,
-        VodopotrebModel.class, Method1Model.class, Method2Model.class, MethodsModel.class}, version = 1)
+        VodopotrebModel.class, MethodsP2O5Model.class, MethodsK2OModel.class, MethodsNModel.class /**Method1Model.class, Method2Model.class, MethodsModel.class**/}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract SoilFactorsDao soilFactorsDao();
@@ -51,9 +57,16 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract VodopotrebDao vodopotrebDao();
 
-    public abstract Method1Dao method1Dao();
+//    public abstract Method1Dao method1Dao();
+//
+//    public abstract Method2Dao method2Dao();
+//
+//    public abstract MethodsDao methodsDao();
 
-    public abstract Method2Dao method2Dao();
+    public abstract MethodsNDao methodsNDao();
 
-    public abstract MethodsDao methodsDao();
+    public abstract MethodsP2O5Dao methodsP2O5Dao();
+
+    public abstract MethodsK2ODao methodsK2ODao();
+
 }

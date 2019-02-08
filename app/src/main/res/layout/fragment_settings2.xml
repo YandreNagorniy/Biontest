@@ -13,229 +13,234 @@
             android:layout_height="match_parent"
             android:paddingBottom="16dp">
 
-            <FrameLayout
-                android:id="@+id/frameLay_settings"
-                android:layout_width="match_parent"
-                android:layout_height="59dp">
+            <!--<FrameLayout-->
+                <!--android:id="@+id/frameLay_settings"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="59dp">-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/settings"
-                    android:textSize="24sp" />
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="@string/settings"-->
+                    <!--android:textSize="24sp" />-->
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="@dimen/margin_smal"
-                    android:src="@drawable/ic_arrow_back_black_24dp" />
-            </FrameLayout>
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:padding="@dimen/margin_smal"-->
+                    <!--android:src="@drawable/ic_arrow_back_black_24dp" />-->
+            <!--</FrameLayout>-->
 
-            <TextView
-                android:id="@+id/tvSoil_factors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Почвенные факторы"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/frameLay_settings" />
+            <!--<TextView-->
+                <!--android:id="@+id/tvSoil_factors"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="16dp"-->
+                <!--android:text="Почвенные факторы"-->
+                <!--android:textSize="18sp"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/frameLay_settings" />-->
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvSoil_factors"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_smal"
-                android:layout_marginEnd="@dimen/margin_smal"
-                app:layoutManager="android.support.v7.widget.GridLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSoil_factors"
-                app:spanCount="3"
-                tools:listitem="@layout/card_settings" />
+            <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:id="@+id/rvSoil_factors"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="@dimen/margin_smal"-->
+                <!--android:layout_marginEnd="@dimen/margin_smal"-->
+                <!--app:layoutManager="android.support.v7.widget.GridLayoutManager"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/tvSoil_factors"-->
+                <!--app:spanCount="3"-->
+                <!--tools:listitem="@layout/card_settings" />-->
 
-            <TextView
-                android:id="@+id/tvGidroTerm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Гидротермические факторы"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rvSoil_factors" />
+            <!--<TextView-->
+                <!--android:id="@+id/tvGidroTerm"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="16dp"-->
+                <!--android:text="Гидротермические факторы"-->
+                <!--android:textSize="18sp"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/rvSoil_factors" />-->
 
 
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/clGidroTerm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_value"
-                android:padding="8dp"
-                app:layout_constraintEnd_toEndOf="@id/rvSoil_factors"
-                app:layout_constraintStart_toStartOf="@id/rvSoil_factors"
-                app:layout_constraintTop_toBottomOf="@id/tvGidroTerm">
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/clGidroTerm"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@drawable/bg_value"-->
+                <!--android:padding="8dp"-->
+                <!--app:layout_constraintEnd_toEndOf="@id/rvSoil_factors"-->
+                <!--app:layout_constraintStart_toStartOf="@id/rvSoil_factors"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/tvGidroTerm">-->
 
-                <TextView
-                    android:id="@+id/tvOsadki"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Осадки за сезон"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@id/etOsadki"
-                    app:layout_constraintTop_toTopOf="@id/etOsadki" />
+                <!--<TextView-->
+                    <!--android:id="@+id/tvOsadki"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Осадки за сезон"-->
+                    <!--android:textSize="16sp"-->
+                    <!--app:layout_constraintBottom_toBottomOf="@id/etOsadki"-->
+                    <!--app:layout_constraintTop_toTopOf="@id/etOsadki" />-->
 
-                <EditText
-                    android:id="@+id/etOsadki"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    app:layout_constraintStart_toEndOf="@id/tvOsadki"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <!--<EditText-->
+                    <!--android:id="@+id/etOsadki"-->
+                    <!--android:layout_width="40dp"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_marginStart="16dp"-->
+                    <!--android:layout_marginLeft="16dp"-->
+                    <!--app:layout_constraintStart_toEndOf="@id/tvOsadki"-->
+                    <!--app:layout_constraintTop_toTopOf="parent" />-->
 
-            </android.support.constraint.ConstraintLayout>
+            <!--</android.support.constraint.ConstraintLayout>-->
 
-            <TextView
-                android:id="@+id/tvAnalitic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Аналитические методики"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/clGidroTerm" />
+            <!--<TextView-->
+                <!--android:id="@+id/tvAnalitic"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="16dp"-->
+                <!--android:text="Аналитические методики"-->
+                <!--android:textSize="18sp"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/clGidroTerm" />-->
 
-            <LinearLayout
-                android:id="@+id/linLay_N"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shadow_settings_left"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toStartOf="@id/linLay_P"
-                app:layout_constraintStart_toStartOf="@id/rvSoil_factors"
-                app:layout_constraintTop_toBottomOf="@id/tvAnalitic">
+            <!--<LinearLayout-->
+                <!--android:id="@+id/linLay_N"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@drawable/shadow_settings_left"-->
+                <!--android:orientation="vertical"-->
+                <!--app:layout_constraintEnd_toStartOf="@id/linLay_P"-->
+                <!--app:layout_constraintStart_toStartOf="@id/rvSoil_factors"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/tvAnalitic">-->
 
-                <TextView
-                    android:id="@+id/tvn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="N"
-                    android:textSize="18sp" />
+                <!--<TextView-->
+                    <!--android:id="@+id/tvn"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="N"-->
+                    <!--android:textSize="18sp" />-->
 
-                <CheckBox
-                    android:id="@+id/cbLightGidr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Легкогидр."
-                    android:textSize="16sp" />
+                <!--<CheckBox-->
+                    <!--android:id="@+id/cbLightGidr"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:text="Легкогидр."-->
+                    <!--android:textSize="16sp" />-->
 
-                <CheckBox
-                    android:id="@+id/cbCheloch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Щелоч."
-                    android:textSize="16sp" />
+                <!--<CheckBox-->
+                    <!--android:id="@+id/cbCheloch"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:text="Щелоч."-->
+                    <!--android:textSize="16sp" />-->
 
-                <CheckBox
-                    android:id="@+id/cbMineral"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Мин."
-                    android:textSize="16sp" />
+                <!--<CheckBox-->
+                    <!--android:id="@+id/cbMineral"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:text="Мин."-->
+                    <!--android:textSize="16sp" />-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
-            <LinearLayout
-                android:id="@+id/linLay_P"
-                android:layout_width="0dp"
-                android:background="@drawable/shadow_settings_center"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toStartOf="@id/linLay_K"
-                app:layout_constraintStart_toEndOf="@id/linLay_N"
-                app:layout_constraintTop_toBottomOf="@id/tvAnalitic">
+            <!--<LinearLayout-->
+                <!--android:id="@+id/linLay_P"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:background="@drawable/shadow_settings_center"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--app:layout_constraintEnd_toStartOf="@id/linLay_K"-->
+                <!--app:layout_constraintStart_toEndOf="@id/linLay_N"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/tvAnalitic">-->
 
-                <TextView
-                    android:id="@+id/tvP"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="P"
-                    android:textSize="18sp" />
+                <!--<TextView-->
+                    <!--android:id="@+id/tvP"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="P"-->
+                    <!--android:textSize="18sp" />-->
 
-                <CheckBox
-                    android:id="@+id/cbChirikov_P"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Чириков"
-                    android:textSize="16sp" />
+                <!--<CheckBox-->
+                    <!--android:id="@+id/cbChirikov_P"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:text="Чириков"-->
+                    <!--android:textSize="16sp" />-->
 
-                <CheckBox
-                    android:id="@+id/cbMachigin_P"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Мачигин"
-                    android:textSize="16sp" />
+                <!--<CheckBox-->
+                    <!--android:id="@+id/cbMachigin_P"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:text="Мачигин"-->
+                    <!--android:textSize="16sp" />-->
 
-                <CheckBox
-                    android:id="@+id/cbKirsanov_P"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Кирсанов"
-                    android:textSize="16sp" />
+                <!--<CheckBox-->
+                    <!--android:id="@+id/cbKirsanov_P"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:text="Кирсанов"-->
+                    <!--android:textSize="16sp" />-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
-            <LinearLayout
-                android:id="@+id/linLay_K"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/shadow_settings_right"
-                app:layout_constraintEnd_toEndOf="@id/rvSoil_factors"
-                app:layout_constraintStart_toEndOf="@id/linLay_P"
-                app:layout_constraintTop_toBottomOf="@id/tvAnalitic">
+            <!--<LinearLayout-->
+                <!--android:id="@+id/linLay_K"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:background="@drawable/shadow_settings_right"-->
+                <!--app:layout_constraintEnd_toEndOf="@id/rvSoil_factors"-->
+                <!--app:layout_constraintStart_toEndOf="@id/linLay_P"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/tvAnalitic">-->
 
-                <TextView
-                    android:id="@+id/tvK"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="K"
-                    android:textSize="18sp" />
+                <!--<TextView-->
+                    <!--android:id="@+id/tvK"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="K"-->
+                    <!--android:textSize="18sp" />-->
 
-                <CheckBox
-                    android:id="@+id/cbChirikov_K"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Чириков"
-                    android:textSize="16sp" />
+                <!--<CheckBox-->
+                    <!--android:id="@+id/cbChirikov_K"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:text="Чириков"-->
+                    <!--android:textSize="16sp" />-->
 
-                <CheckBox
-                    android:id="@+id/cbMachigin_K"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Мачигин"
-                    android:textSize="16sp" />
+                <!--<CheckBox-->
+                    <!--android:id="@+id/cbMachigin_K"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:text="Мачигин"-->
+                    <!--android:textSize="16sp" />-->
 
-                <CheckBox
-                    android:id="@+id/cbKirsanov_K"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Кирсанов"
-                    android:textSize="16sp" />
-            </LinearLayout>
+                <!--<CheckBox-->
+                    <!--android:id="@+id/cbKirsanov_K"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:text="Кирсанов"-->
+                    <!--android:textSize="16sp" />-->
+            <!--</LinearLayout>-->
+
+
+
+
+
 
             <!--<android.support.constraint.ConstraintLayout-->
             <!--android:layout_width="0dp"-->

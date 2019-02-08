@@ -6,8 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 //Расчет потребности в осадках
 @Entity
 public class PotrebOsadkiModel {
-    public PotrebOsadkiModel(long id, String culture, int value) {
-        this.id = id;
+    public PotrebOsadkiModel(String culture, int value) {
         this.culture = culture;
         this.value = value;
     }

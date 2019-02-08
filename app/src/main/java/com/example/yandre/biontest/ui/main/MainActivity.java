@@ -1,13 +1,10 @@
 package com.example.yandre.biontest.ui.main;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 
@@ -15,7 +12,6 @@ import com.example.yandre.biontest.R;
 import com.example.yandre.biontest.adapters.MenuAdapter;
 import com.example.yandre.biontest.ui.about.AboutUsFragment;
 import com.example.yandre.biontest.ui.calculator.CalculatorFragment;
-import com.example.yandre.biontest.ui.calculator.CalculatorFragment2;
 import com.example.yandre.biontest.ui.settings.SettingsFragment;
 
 import java.util.ArrayList;

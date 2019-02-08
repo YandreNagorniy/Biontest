@@ -6,8 +6,12 @@ import android.arch.persistence.room.PrimaryKey;
 //Водопотребление
 @Entity
 public class VodopotrebModel {
-    public VodopotrebModel(long id, String culture, int value) {
-        this.id = id;
+    @PrimaryKey(autoGenerate = true)
+    private long id;
+    private String culture;
+    private int value;
+
+    public VodopotrebModel(String culture, int value) {
         this.culture = culture;
         this.value = value;
     }
@@ -35,9 +39,4 @@ public class VodopotrebModel {
     public void setValue(int value) {
         this.value = value;
     }
-
-    @PrimaryKey(autoGenerate = true)
-    private long id;
-    private String culture;
-    private int value;
 }
