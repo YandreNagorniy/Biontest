@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8ecc27d3394da40b6f3e818903fe5536",
+    "identityHash": "aa9784e169b5de6f0cb9098e3ca70777",
     "entities": [
       {
         "tableName": "SoilFactorsModel",
@@ -402,7 +402,7 @@
       },
       {
         "tableName": "VinosModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `vinosCulture` TEXT, `vinosN` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `Ca` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `N` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `Ca` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -411,14 +411,14 @@
             "notNull": true
           },
           {
-            "fieldPath": "vinosCulture",
-            "columnName": "vinosCulture",
+            "fieldPath": "culture",
+            "columnName": "culture",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "vinosN",
-            "columnName": "vinosN",
+            "fieldPath": "N",
+            "columnName": "N",
             "affinity": "REAL",
             "notNull": true
           },
@@ -719,7 +719,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8ecc27d3394da40b6f3e818903fe5536\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"aa9784e169b5de6f0cb9098e3ca70777\")"
     ]
   }
 }

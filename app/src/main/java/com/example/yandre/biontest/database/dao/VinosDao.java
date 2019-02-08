@@ -30,7 +30,4 @@ public interface VinosDao {
     @Query("DELETE FROM VinosModel WHERE id IS :id")
     void delete(long id);
 
-
-//        @Update
-//    void update(SettingsModel user);
 }

@@ -6,7 +6,7 @@ public class CalculateN {
 
     public double vinosN;
     public int settingsN;
-    public double kUsvN;
+    public double ksvN;
     public double pHN;
     public int settingsG;
 }

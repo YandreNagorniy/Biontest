@@ -31,28 +31,63 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
     }
 
     private int vodopotrebValue;
-    double productive = calculateH2OList.get(0).productive;
-    double zpv = calculateH2OList.get(0).zpv;
+    double productive;
+    double zpv;
+    double humidityOfSoil;
+    private double vinosN;
+    double kusvN;
+    double phN;
+    int settingsN;
+    int settingsG;
 
     @Override
     public void getCalculatorData() {
         long id = 1; //Брать id
 
         // get vodopotrebValue
-        compositeDisposable.add(vodopotrebDao.getVodopotrebModel(id)
+        compositeDisposable.add(vodopotrebDao.getVodopotrebValue(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(vodopotrebModel -> vodopotrebValue = vodopotrebModel.getValue()));
+                .subscribe(integer -> vodopotrebValue = integer));
 
-        // get productive, zpv, humidityOfSoil
+//        // get productive, zpv, humidityOfSoil
         compositeDisposable.add(calculatorDao.getDataFromCalculateH2O(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(calculateH2O -> calculateH2OList = calculateH2O));
+                .subscribe(calculateH2OList -> {
+                    zpv = calculateH2OList.get(0).zpv;
+                    productive = calculateH2OList.get(0).productive;
+                    humidityOfSoil = calculateH2OList.get(0).humidityOfSoil;
+                }));
+
+        compositeDisposable.add(calculatorDao.getVinosN(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(aDouble -> vinosN = aDouble, Throwable::printStackTrace));
+
+        compositeDisposable.add(calculatorDao.getSettingsN()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(integer -> settingsN = integer));
+
+        compositeDisposable.add(calculatorDao.getSettingsG()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(integer -> settingsG = integer));
+
+//        compositeDisposable.add(calculatorDao.getPhN()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(aDouble -> phN = aDouble));
+
+        compositeDisposable.add(calculatorDao.getKUsvN(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(aDouble -> kusvN = aDouble));
+//        calculateN();
     }
 
-    private void calculateH2O(List<CalculateH2O> calculateH2OS) {
-        calculateH2OList = calculateH2OS;
+    public void calculateH2O(List<CalculateH2O> calculateH2OList) {
         double H2O = 0;
         //не 0, а id-1
         double productive = calculateH2OList.get(0).productive;
@@ -62,6 +97,10 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         if (result < 0) {
             H2O = 0;
         } else H2O = result;
+    }
+
+    public void calculateN() {
+        int a = 0;
     }
 
     public void onDestroy() {
