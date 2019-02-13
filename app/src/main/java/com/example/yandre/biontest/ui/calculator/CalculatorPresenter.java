@@ -1,11 +1,22 @@
 package com.example.yandre.biontest.ui.calculator;
 
-import com.example.yandre.biontest.pojo.CalculateH2O;
-
-import java.util.List;
-
 public interface CalculatorPresenter {
 
-    void getCalculatorData();
+    void getData();
+
+//    void calculateN();
+//
+//    void calculateS();
+//
+//    void calculateP2O5();
+//
+//    void calculateCa();
+//
+//    void calculateK2O();
+//
+//    void calculateMg();
+//
+//    void calculateH2O();
+
     void onDestroy();
 }

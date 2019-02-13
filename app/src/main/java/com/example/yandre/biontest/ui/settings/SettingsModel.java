@@ -1,6 +1,6 @@
 package com.example.yandre.biontest.ui.settings;
 
-public interface SettingsPresenter {
+public interface SettingsModel {
 
     void loadSoilFactors();
 

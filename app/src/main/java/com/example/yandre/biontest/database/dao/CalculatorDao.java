@@ -52,12 +52,16 @@ public interface CalculatorDao {
     @Query("Select  value From SoilFactorsModel Where subTitle == \"N\"")
     Single<Integer> getSettingsN();
 
-    @Query("Select N From KUsvModel Where id is :id")
-    Single<Double> getKUsvN(long id);
-
-    @Query("Select N From phmodel where ph= (Select value From SoilFactorsModel Where  subTitle == \"pH\")")
-    Single<Double> getPhN();
+    @Query("Select value From SoilFactorsModel Where  subTitle == \"pH\"")
+    Single<Integer> getSettingsPh();
 
     @Query("Select value From SoilFactorsModel Where subTitle == \"g\"")
     Single<Integer> getSettingsG();
+
+    @Query("Select N From KUsvModel Where id is :id")
+    Single<Double> getKUsvN(long id);
+
+    @Query("Select N From phmodel where ph is :ph")
+    Single<Double> getPhN(double ph);
+
 }
