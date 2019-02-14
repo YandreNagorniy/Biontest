@@ -61,7 +61,7 @@
         app:layout_constraintStart_toStartOf="@id/tvN_frgCalculator"
         app:layout_constraintTop_toBottomOf="@id/numbPicker" />
 
-    <com.example.yandre.biontest.custom.ChemistryView
+    <com.example.yandre.biontest.presentation.custom.ChemistryView
         android:id="@+id/tvN_frgCalculator"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <com.example.yandre.biontest.custom.ChemistryView
+    <com.example.yandre.biontest.presentation.custom.ChemistryView
         android:id="@+id/tvP_frgCalculator"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
         app:title="Сера"
         app:value="4" />
 
-    <com.example.yandre.biontest.custom.ChemistryView
+    <com.example.yandre.biontest.presentation.custom.ChemistryView
         android:id="@+id/tvMg_frgCalculator"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
         app:title="Магний"
         app:value="8" />
 
-    <com.example.yandre.biontest.custom.ChemistryView
+    <com.example.yandre.biontest.presentation.custom.ChemistryView
         android:id="@+id/tvS_frgCalculator"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
         app:value="3" />
 
 
-    <com.example.yandre.biontest.custom.ChemistryView
+    <com.example.yandre.biontest.presentation.custom.ChemistryView
         android:id="@+id/tvK_frgCalculator"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
         app:title="Калий"
         app:value="1" />
 
-    <com.example.yandre.biontest.custom.ChemistryView
+    <com.example.yandre.biontest.presentation.custom.ChemistryView
         android:id="@+id/tvCa_frgCalculator"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.75" />
 
-    <com.example.yandre.biontest.custom.ChemistryView
+    <com.example.yandre.biontest.presentation.custom.ChemistryView
         android:id="@+id/tvH2O_frgCalculator"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
