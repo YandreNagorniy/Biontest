@@ -7,4 +7,8 @@ import java.util.List;
 public interface CalculatorView  {
 
     void displayData(List<CalculateN> list);
+
+    void setN(double n);
+
+    void showError(String message);
 }

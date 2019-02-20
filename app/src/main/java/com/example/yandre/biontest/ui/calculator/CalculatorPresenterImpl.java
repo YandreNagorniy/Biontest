@@ -1,15 +1,20 @@
 package com.example.yandre.biontest.ui.calculator;
 
 import android.annotation.SuppressLint;
+import android.util.Pair;
 
 import com.example.yandre.biontest.pojo.CalculateN;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Single;
+import io.reactivex.SingleSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorPresenterImpl implements CalculatorPresenter {
@@ -36,52 +41,42 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 //        calculatorModel.getDataK20();
 //        calculatorModel.getDataMg();
         this.calculateN(1);
-        calculatorModel.getDataH2O();
+        calculatorModel.getDataH2O(1);
 
         return itemList;
     }
 
-    //    private double kusvN;
-//    private double productive;
-//    private double vinosN;
-//    private double settingsN;
-    private double settingsPH;
-    private double settingsG;
-    private double phN;
-
     @SuppressLint("CheckResult")
     @Override
     public void calculateN(int id) {
+//        List<CalculateN> array = new ArrayList<>();
+//        compositeDisposable.add(calculatorModel.getDataN(id)
+//                .subscribeOn(Schedulers.io())
+//                .flatMap(list ->
+//                    calculatorModel.getPhN(list.get(1).value)
+//                            .zipWith(Single.just(list), new BiFunction<Double, List<CalculateN>, Pair<Double,List<CalculateN>>>() {
+//                                @Override
+//                                public Pair<Double, List<CalculateN>> apply(Double aDouble, List<CalculateN> list) throws Exception {
+//                                    return new Pair<>(aDouble,list);
+//                                }
+//                            })
+//                )
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(value -> calculatorView.setN(initN(value, array)),
+//                        throwable -> {
+//                        }));
+
         compositeDisposable.add(calculatorModel.getDataN(id)
                 .subscribeOn(Schedulers.io())
+                .flatMap(list -> calculatorModel.getPhN(list.get(1).value)
+                        .zipWith(Single.just(list), Pair::new))
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(list -> {
-                    double kusvN = list.get(0).kusv_N;
-                    double productive = list.get(0).productive;
-                    double vinosN = list.get(0).vinos_N;
-                    double settingsN = list.get(0).value;
-                    settingsPH = list.get(1).value;
-                    settingsG = list.get(2).value;
-
-                    calculatorModel.getPhN(settingsPH)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(new Consumer<Double>() {
-                                @Override
-                                public void accept(Double aDouble) throws Exception {
-                                    phN = aDouble;
-                                }
-                            });
-                }, throwable -> {
-                }));
-
-        double a = settingsPH;
-        double b = phN;
+                .subscribe(doubleListPair -> calculatorView.setN(initN(doubleListPair.first, doubleListPair.second)),
+                        throwable -> calculatorView.showError(throwable.getMessage())));
     }
 
     @Override
     public void calculateS() {
-
     }
 
     public void calculateP2O5() {
@@ -100,12 +95,27 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     }
 
-    public void calculateH2O() {
+    public void calculateH2O(long id) {
 
+        compositeDisposable.add(calculatorModel.getDataH2O(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(doubleListPair -> calculatorView.setN(1),
+                        throwable -> calculatorView.showError(throwable.getMessage())));
     }
 
     @Override
     public void onDestroy() {
         calculatorModel.onDestroy();
+    }
+
+    private double initN(Double value, List<CalculateN> list) {
+        double kusvN = list.get(0).kusv_N;
+        double productive = list.get(0).productive;
+        double vinosN = list.get(0).vinos_N;
+        double settingsN = list.get(0).value;
+        double settingsPH = list.get(1).value;
+        double settingsG = list.get(2).value;
+        return 0;
     }
 }

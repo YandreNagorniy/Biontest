@@ -7,14 +7,10 @@ import com.example.yandre.biontest.database.data.ValueData;
 import com.example.yandre.biontest.pojo.CalculateH2O;
 import com.example.yandre.biontest.pojo.CalculateN;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Single;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorModelImpl implements CalculatorModel {
     private CalculatorPresenter calculatorPresenter;
@@ -80,15 +76,16 @@ public class CalculatorModelImpl implements CalculatorModel {
     private List<CalculateH2O> list;
 
     @Override
-    public void getDataH2O() {
-        long id = 1; //Брать id
-        list = new ArrayList<>();
-
-        // get productive, zpv, humidityOfSoil
-        compositeDisposable.add(calculatorDao.getDataFromCalculateH2O(id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(calculateH2OList -> list = calculateH2OList));
+    public Single<List<CalculateH2O>> getDataH2O(long id) {
+        return calculatorDao.getDataFromCalculateH2O(id);
+//        long id = 1; //Брать id
+//        list = new ArrayList<>();
+//
+//        // get productive, zpv, humidityOfSoil
+//        compositeDisposable.add(calculatorDao.getDataFromCalculateH2O(id)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(calculateH2OList -> list = calculateH2OList));
     }
 
 

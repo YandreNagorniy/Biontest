@@ -1,5 +1,6 @@
 package com.example.yandre.biontest.ui.calculator;
 
+import com.example.yandre.biontest.pojo.CalculateH2O;
 import com.example.yandre.biontest.pojo.CalculateN;
 
 import java.util.List;
@@ -22,7 +23,8 @@ public interface CalculatorModel {
 
     void getDataMg();
 
-    void getDataH2O();
+
+    Single<List<CalculateH2O>> getDataH2O(long id);
 
     void onDestroy();
 

@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.yandre.biontest.R;
 import com.example.yandre.biontest.databinding.FragmentCalculatorBinding;
@@ -48,7 +49,17 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
 
     @Override
     public void displayData(List<CalculateN> list) {
-        int a=0;
-       // binding.toolbarFragCalculator.setTitle(String.valueOf(list.size()));
+        int a = 0;
+        // binding.toolbarFragCalculator.setTitle(String.valueOf(list.size()));
+    }
+
+    @Override
+    public void setN(double n) {
+        Toast.makeText(getContext(), String.valueOf(n), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showError(String message) {
+        Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
     }
 }
