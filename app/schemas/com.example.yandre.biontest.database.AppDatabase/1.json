@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "aa9784e169b5de6f0cb9098e3ca70777",
+    "identityHash": "e6f14ab525d2cbd3ec05e2b3323849e7",
     "entities": [
       {
         "tableName": "SoilFactorsModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `subTitle` TEXT, `value` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `subTitle` TEXT, `soil_value` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -28,8 +28,8 @@
           },
           {
             "fieldPath": "value",
-            "columnName": "value",
-            "affinity": "INTEGER",
+            "columnName": "soil_value",
+            "affinity": "REAL",
             "notNull": true
           }
         ],
@@ -44,7 +44,7 @@
       },
       {
         "tableName": "KUsvModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `N` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `Ca` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL, `Zn` REAL NOT NULL, `Mo` REAL NOT NULL, `Cu` REAL NOT NULL, `Mn` REAL NOT NULL, `Co` REAL NOT NULL, `B` REAL NOT NULL, `Fe` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `kusv_N` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `Ca` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL, `Zn` REAL NOT NULL, `Mo` REAL NOT NULL, `Cu` REAL NOT NULL, `Mn` REAL NOT NULL, `Co` REAL NOT NULL, `B` REAL NOT NULL, `Fe` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -60,7 +60,7 @@
           },
           {
             "fieldPath": "N",
-            "columnName": "N",
+            "columnName": "kusv_N",
             "affinity": "REAL",
             "notNull": true
           },
@@ -402,7 +402,7 @@
       },
       {
         "tableName": "VinosModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `N` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `Ca` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `vinos_N` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `Ca` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -418,7 +418,7 @@
           },
           {
             "fieldPath": "N",
-            "columnName": "N",
+            "columnName": "vinos_N",
             "affinity": "REAL",
             "notNull": true
           },
@@ -719,7 +719,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"aa9784e169b5de6f0cb9098e3ca70777\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"e6f14ab525d2cbd3ec05e2b3323849e7\")"
     ]
   }
 }

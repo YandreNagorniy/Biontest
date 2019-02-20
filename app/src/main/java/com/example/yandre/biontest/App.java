@@ -3,7 +3,7 @@ package com.example.yandre.biontest;
 import android.app.Application;
 import android.arch.persistence.room.Room;
 
-import com.example.yandre.biontest.data.database.AppDatabase;
+import com.example.yandre.biontest.database.AppDatabase;
 
 public class App extends Application {
     public static App instance;

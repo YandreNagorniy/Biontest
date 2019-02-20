@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".presentation.ui.main.MainActivity">
+        <activity android:name=".ui.main.MainActivity">
 
         </activity>
-        <activity android:name=".presentation.ui.splash.SplashActivity"
+        <activity android:name=".ui.splash.SplashActivity"
             >
             <!--android:theme="@style/SplashTheme"-->
 
