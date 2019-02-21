@@ -55,21 +55,21 @@ public class AddStartData {
         soilFactorsDao = App.getInstance().getDatabase().soilFactorsDao();
 
         List<SoilFactorsModel> soilFactorsList = new ArrayList<>();
-        soilFactorsList.add(new SoilFactorsModel("Гумус", "g", 3));
-        soilFactorsList.add(new SoilFactorsModel("title", "pH", 6));
+        soilFactorsList.add(new SoilFactorsModel("Гумус", "g", 3.2));
+        soilFactorsList.add(new SoilFactorsModel("title", "pH", 6.0));
         soilFactorsList.add(new SoilFactorsModel("title", "N", 10));
-        soilFactorsList.add(new SoilFactorsModel("title", "P205", 2));
-        soilFactorsList.add(new SoilFactorsModel("title", "K20", 5));
-        soilFactorsList.add(new SoilFactorsModel("title", "CaO", 5));
-        soilFactorsList.add(new SoilFactorsModel("title", "MgO", 7));
-        soilFactorsList.add(new SoilFactorsModel("title", "S", 3));
-        soilFactorsList.add(new SoilFactorsModel("title", "Zn", 9));
-        soilFactorsList.add(new SoilFactorsModel("title", "Mo", 7));
-        soilFactorsList.add(new SoilFactorsModel("title", "Cu", 5));
-        soilFactorsList.add(new SoilFactorsModel("title", "Mn", 8));
-        soilFactorsList.add(new SoilFactorsModel("title", "Co", 8));
-        soilFactorsList.add(new SoilFactorsModel("title", "B", 8));
-        soilFactorsList.add(new SoilFactorsModel("title", "Fe", 8));
+        soilFactorsList.add(new SoilFactorsModel("title", "P205", 27));
+        soilFactorsList.add(new SoilFactorsModel("title", "K20", 329));
+        soilFactorsList.add(new SoilFactorsModel("title", "CaO", 5.25));
+        soilFactorsList.add(new SoilFactorsModel("title", "MgO", 1.38));
+        soilFactorsList.add(new SoilFactorsModel("title", "S", 4.20));
+        soilFactorsList.add(new SoilFactorsModel("title", "Zn", 0.25));
+        soilFactorsList.add(new SoilFactorsModel("title", "Mo", 0.1));
+        soilFactorsList.add(new SoilFactorsModel("title", "Cu", 0.17));
+        soilFactorsList.add(new SoilFactorsModel("title", "Mn", 6.05));
+        soilFactorsList.add(new SoilFactorsModel("title", "Co", 0.02));
+        soilFactorsList.add(new SoilFactorsModel("title", "B", 0.43));
+        soilFactorsList.add(new SoilFactorsModel("title", "Fe", 7.18));
 
         Completable.fromAction(() -> soilFactorsDao.insertList(soilFactorsList))
                 .subscribeOn(Schedulers.io())
@@ -255,7 +255,7 @@ public class AddStartData {
         CalculatorDao calculatorDao =
                 App.getInstance().getDatabase().calculatorDao();
         CalculatorModel calculatorModel =
-                new CalculatorModel(0, 0, 0, 0, 0, 0, 0, 23.5, 0,70);
+                new CalculatorModel(0, 0, 0, 0, 0, 0, 0, 23.5, 130,70);
 
         Completable.fromAction(() -> calculatorDao.insert(calculatorModel))
                 .subscribeOn(Schedulers.io())

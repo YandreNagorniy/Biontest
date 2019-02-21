@@ -13,17 +13,29 @@ public class KUsvModel {
     private String culture;
     @ColumnInfo(name = "kusv_N")
     private double N;
+    @ColumnInfo(name = "kusv_P2O5")
     private double P2O5;
+    @ColumnInfo(name = "kusv_K2O")
     private double K2O;
+    @ColumnInfo(name = "kusv_Ca")
     private double Ca;
+    @ColumnInfo(name = "kusv_MgO")
     private double MgO;
+    @ColumnInfo(name = "kusv_S")
     private double S;
+    @ColumnInfo(name = "kusv_Zn")
     private double Zn;
+    @ColumnInfo(name = "kusv_Mo")
     private double Mo;
+    @ColumnInfo(name = "kusv_Cu")
     private double Cu;
+    @ColumnInfo(name = "kusv_Mn")
     private double Mn;
+    @ColumnInfo(name = "kusv_Co")
     private double Co;
+    @ColumnInfo(name = "kusv_B")
     private double B;
+    @ColumnInfo(name = "kusv_Fe")
     private double Fe;
 
     public KUsvModel(String culture, double N, double P2O5, double K2O, double Ca, double MgO,

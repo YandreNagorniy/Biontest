@@ -29,16 +29,13 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
                 inflater, R.layout.fragment_calculator, container, false);
         calculatorPresenter = new CalculatorPresenterImpl(this);
 
-        calculatorPresenter.getData();
-//        binding.calculatorIncluded.tvH2OFrgCalculator
-
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        calculatorPresenter.getData();
+        calculatorPresenter.getCalculatorData();
     }
 
     @Override
@@ -54,7 +51,13 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     }
 
     @Override
+    public void fillData(List<Double> list) {
+
+    }
+
+    @Override
     public void setN(double n) {
+        //        binding.calculatorIncluded.tvH2OFrgCalculator
         Toast.makeText(getContext(), String.valueOf(n), Toast.LENGTH_SHORT).show();
     }
 

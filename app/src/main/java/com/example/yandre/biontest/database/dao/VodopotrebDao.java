@@ -30,8 +30,8 @@ public interface VodopotrebDao {
     @Query("DELETE FROM VodopotrebModel WHERE id IS :id")
     void delete(long id);
 
-    @Query("SELECT value FROM VodopotrebModel WHERE id IS :id")
-    Single<Integer> getVodopotrebValue(long id);
+//    @Query("SELECT value FROM VodopotrebModel WHERE id IS :id")
+//    Single<Integer> getVodopotrebValue(long id);
 
 //        @Update
 //    void update(SettingsModel user);

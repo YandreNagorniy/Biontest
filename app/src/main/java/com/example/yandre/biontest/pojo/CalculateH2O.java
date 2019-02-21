@@ -4,6 +4,6 @@ public class CalculateH2O {
 
     public double productive;
     public double zpv;
-    public double humidityOfSoil;
+    public double value;
 
 }

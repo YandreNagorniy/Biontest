@@ -2,9 +2,11 @@ package com.example.yandre.biontest.ui.calculator;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public interface CalculatorPresenter {
 
-    List<Double> getData();
+    void getCalculatorData();
 
 //
 //    void calculateS();
@@ -19,9 +21,10 @@ public interface CalculatorPresenter {
 //
 //    void calculateH2O();
 
-    void calculateN(int id);
+    Single<Double> getDataN(int id);
 
-    void calculateS();
+
+    Single<Double> getDataH20(long id);
 
     void onDestroy();
 

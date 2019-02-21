@@ -10,7 +10,10 @@ import com.example.yandre.biontest.pojo.CalculateN;
 import java.util.List;
 
 import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorModelImpl implements CalculatorModel {
     private CalculatorPresenter calculatorPresenter;
@@ -31,16 +34,6 @@ public class CalculatorModelImpl implements CalculatorModel {
     @Override
     public Single<List<CalculateN>> getDataN(int id) {
         return calculatorDao.getDataN(id, ValueData.N, ValueData.pH, ValueData.g);
-//        long id = 1; //Брать id
-//        compositeDisposable.add(calculatorDao.getDataN(1, ValueData.N, ValueData.pH, ValueData.g)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Consumer<List<CalculateN>>() {
-//                    @Override
-//                    public void accept(List<CalculateN> calculateNS) throws Exception {
-//                        int a = 0;
-//                    }
-//
     }
 
     @Override
@@ -73,11 +66,12 @@ public class CalculatorModelImpl implements CalculatorModel {
 
     }
 
+
     private List<CalculateH2O> list;
 
     @Override
     public Single<List<CalculateH2O>> getDataH2O(long id) {
-        return calculatorDao.getDataFromCalculateH2O(id);
+        return calculatorDao.getDataH2O(id);
 //        long id = 1; //Брать id
 //        list = new ArrayList<>();
 //

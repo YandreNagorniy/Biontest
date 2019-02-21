@@ -12,10 +12,15 @@ public class VinosModel {
     private String culture;
     @ColumnInfo(name = "vinos_N")
     private double N;
+    @ColumnInfo(name = "vinos_P2O5")
     private double P2O5;
+    @ColumnInfo(name = "vinos_K2O")
     private double K2O;
+    @ColumnInfo(name = "vinos_Ca")
     private double Ca;
+    @ColumnInfo(name = "vinos_MgO")
     private double MgO;
+    @ColumnInfo(name = "vinos_S")
     private double S;
 
     public VinosModel(String culture, double N, double P2O5, double K2O,

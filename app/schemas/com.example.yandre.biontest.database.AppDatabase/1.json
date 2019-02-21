@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "e6f14ab525d2cbd3ec05e2b3323849e7",
+    "identityHash": "ef93d709f71c41bb54bd3e670780683a",
     "entities": [
       {
         "tableName": "SoilFactorsModel",
@@ -464,7 +464,7 @@
       },
       {
         "tableName": "VodopotrebModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `value` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `value` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -481,7 +481,7 @@
           {
             "fieldPath": "value",
             "columnName": "value",
-            "affinity": "INTEGER",
+            "affinity": "REAL",
             "notNull": true
           }
         ],
@@ -719,7 +719,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"e6f14ab525d2cbd3ec05e2b3323849e7\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ef93d709f71c41bb54bd3e670780683a\")"
     ]
   }
 }

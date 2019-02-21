@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface CalculatorView  {
 
+    void fillData(List<Double> list);
+
     void displayData(List<CalculateN> list);
 
     void setN(double n);
