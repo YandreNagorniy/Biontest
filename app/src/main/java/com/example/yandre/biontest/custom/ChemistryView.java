@@ -10,6 +10,10 @@ import android.widget.TextView;
 import com.example.yandre.biontest.R;
 
 public class ChemistryView extends FrameLayout {
+    private TextView tvTitle;
+    private TextView tvSubTitle;
+    private EditText edValue;
+
     public ChemistryView(Context context) {
         this(context, null);
     }
@@ -28,13 +32,17 @@ public class ChemistryView extends FrameLayout {
         String subTitle = array.getString(R.styleable.ChemistryView_sub_title);
         int value = array.getInt(R.styleable.ChemistryView_value, 0);
 
-        TextView tvTitle = findViewById(R.id.tvTitle);
-        TextView tvSubTitle = findViewById(R.id.tvSubtitle);
-        EditText edValue = findViewById(R.id.etValue);
+        tvTitle = findViewById(R.id.tvTitle);
+        tvSubTitle = findViewById(R.id.tvSubtitle);
+        edValue = findViewById(R.id.etValue);
 
         tvTitle.setText(title);
         tvSubTitle.setText(subTitle);
         edValue.setText(String.valueOf(value));
         array.recycle();
+    }
+
+    public void setElement(String element) {
+        edValue.setText(element);
     }
 }

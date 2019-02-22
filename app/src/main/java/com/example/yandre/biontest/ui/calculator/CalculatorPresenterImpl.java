@@ -9,6 +9,8 @@ import com.example.yandre.biontest.pojo.CalculateMgO;
 import com.example.yandre.biontest.pojo.CalculateN;
 import com.example.yandre.biontest.pojo.CalculateP2O5;
 import com.example.yandre.biontest.pojo.CalculateS;
+import com.example.yandre.biontest.pojo.ElementModel;
+import com.example.yandre.biontest.pojo.TypeElement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +18,8 @@ import java.util.List;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.BiFunction;
-import io.reactivex.functions.Function;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorPresenterImpl implements CalculatorPresenter {
@@ -33,73 +35,89 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     @Override
     public void getCalculatorData() {
-        List<Double> list = new ArrayList<>();
-        compositeDisposable.add(Single.concat(getDataS(1), getDataH20(1), getDataMgO(1), getDataCaO(1))
+        List<Single<ElementModel>> list = new ArrayList<>();
+        list.add(getDataN(1));
+        list.add(getDataP2O5(1));
+        list.add(getDataK2O(1));
+        list.add(getDataCaO(1));
+        list.add(getDataMgO(1));
+        list.add(getDataS(1));
+        list.add(getDataH20(1));
+
+        compositeDisposable.add(Single.concat(list)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(list::add,
-                        throwable -> calculatorView.showError(throwable.getMessage()),
-                        () -> calculatorView.fillData(list)));
+                .buffer(7)
+                .cache()
+                .subscribe(elementModels -> calculatorView.fillData(elementModels)));
     }
 
     @Override
-    public Single<Double> getDataN(int id) {
+    public Single<ElementModel> getDataN(int id) {
         return calculatorModel.getDataN(id)
                 .subscribeOn(Schedulers.io())
                 .flatMap(calculateNList -> calculatorModel.getPhN(calculateNList.get(1).value)
                         .zipWith(Single.just(calculateNList), Pair::new))
-                .map(doubleListPair -> calculateN(doubleListPair.first, doubleListPair.second));
+                .map(doubleListPair -> calculateN(doubleListPair.first, doubleListPair.second))
+                .map(n -> new ElementModel(TypeElement.N, n.intValue()));
     }
 
     @Override
-    public Single<Double> getDataP2O5(int id) {
+    public Single<ElementModel> getDataP2O5(int id) {
         return calculatorModel.getDataP2O5(id)
                 .subscribeOn(Schedulers.io())
                 .flatMap(calculateP2O5List -> calculatorModel.getPhP2O5(calculateP2O5List.get(0).value)
                         .zipWith(Single.just(calculateP2O5List), Pair::new)
-                        .map(doubleListPair -> calculateP2O5(doubleListPair.first, doubleListPair.second)));
+                        .map(doubleListPair -> calculateP2O5(doubleListPair.first, doubleListPair.second))
+                        .map(p2O5 -> new ElementModel(TypeElement.P2O5, p2O5.intValue())));
     }
 
     @Override
-    public Single<Double> getDataK2O(int id) {
+    public Single<ElementModel> getDataK2O(int id) {
         return calculatorModel.getDataK2O(id)
                 .subscribeOn(Schedulers.io())
                 .flatMap(calculateK2OList -> calculatorModel.getPhK2O(calculateK2OList.get(0).value)
                         .zipWith(Single.just(calculateK2OList), Pair::new)
-                        .map(doubleListPair -> calculateK2O(doubleListPair.first, doubleListPair.second)));
+                        .map(doubleListPair -> calculateK2O(doubleListPair.first, doubleListPair.second))
+                        .map(k2O -> new ElementModel(TypeElement.K2O, k2O.intValue())));
     }
 
     @Override
-    public Single<Double> getDataCaO(int id) {
+    public Single<ElementModel> getDataCaO(int id) {
         return calculatorModel.getDataCaO(id)
                 .subscribeOn(Schedulers.io())
                 .flatMap(calculateCaOList -> calculatorModel.getPhCaO(calculateCaOList.get(0).value)
                         .zipWith(Single.just(calculateCaOList), Pair::new)
-                        .map(doubleListPair -> calculateCaO(doubleListPair.first, doubleListPair.second)));
+                        .map(doubleListPair -> calculateCaO(doubleListPair.first, doubleListPair.second))
+                        .map(caO -> new ElementModel(TypeElement.CaO, caO.intValue())));
     }
 
     @Override
-    public Single<Double> getDataMgO(int id) {
+    public Single<ElementModel> getDataMgO(int id) {
         return calculatorModel.getDataMgO(id)
                 .subscribeOn(Schedulers.io())
                 .flatMap(calculateMgOList -> calculatorModel.getPhMgO(calculateMgOList.get(0).value)
                         .zipWith(Single.just(calculateMgOList), Pair::new)
-                        .map(doubleListPair -> calculateMgO(doubleListPair.first, doubleListPair.second)));
+                        .map(doubleListPair -> calculateMgO(doubleListPair.first, doubleListPair.second))
+                        .map(mgO -> new ElementModel(TypeElement.MgO, mgO.intValue())));
     }
 
     @Override
-    public Single<Double> getDataS(int id) {
+    public Single<ElementModel> getDataS(int id) {
         return calculatorModel.getDataS(id)
                 .subscribeOn(Schedulers.io())
                 .flatMap(calculateSList -> calculatorModel.getPhS(calculateSList.get(0).value)
                         .zipWith(Single.just(calculateSList), Pair::new)
-                        .map(doubleListPair -> calculateS(doubleListPair.first, doubleListPair.second)));
+                        .map(doubleListPair -> calculateS(doubleListPair.first, doubleListPair.second))
+                        .map(s -> new ElementModel(TypeElement.S, s.intValue())));
+
     }
 
     @Override
-    public Single<Double> getDataH20(long id) {
+    public Single<ElementModel> getDataH20(long id) {
         return calculatorModel.getDataH2O(id)
                 .subscribeOn(Schedulers.io())
-                .map(this::calculateH2O);
+                .map(this::calculateH2O)
+                .map(h2O -> new ElementModel(TypeElement.H2O, h2O.intValue()));
     }
 
     private double calculateN(Double value, List<CalculateN> list) {
@@ -177,7 +195,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         double vinosS = calculateSList.get(0).vinos_S;
         double settingsS = calculateSList.get(1).value;
         double phS = value;
-        double S = vinosS * productive - settingsS * kusvS * 3.96  * phS;
+        double S = vinosS * productive - settingsS * kusvS * 3.96 * phS;
         if (S < 0) return 0;
         else return S;
     }
