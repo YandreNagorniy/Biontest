@@ -15,6 +15,12 @@ public interface CalculatorPresenter {
 
     Single<Double> getDataK2O(int id);
 
+    Single<Double> getDataCaO(int id);
+
+    Single<Double> getDataMgO(int id);
+
+    Single<Double> getDataS(int id);
+
     Single<Double> getDataH20(long id);
 
     void onDestroy();

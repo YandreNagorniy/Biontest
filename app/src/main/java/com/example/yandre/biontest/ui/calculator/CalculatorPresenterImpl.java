@@ -2,10 +2,13 @@ package com.example.yandre.biontest.ui.calculator;
 
 import android.util.Pair;
 
+import com.example.yandre.biontest.pojo.CalculateCaO;
 import com.example.yandre.biontest.pojo.CalculateH2O;
 import com.example.yandre.biontest.pojo.CalculateK2O;
+import com.example.yandre.biontest.pojo.CalculateMgO;
 import com.example.yandre.biontest.pojo.CalculateN;
 import com.example.yandre.biontest.pojo.CalculateP2O5;
+import com.example.yandre.biontest.pojo.CalculateS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +34,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
     @Override
     public void getCalculatorData() {
         List<Double> list = new ArrayList<>();
-        compositeDisposable.add(Single.concat(getDataN(1), getDataH20(1), getDataP2O5(1), getDataK2O(1))
+        compositeDisposable.add(Single.concat(getDataS(1), getDataH20(1), getDataMgO(1), getDataCaO(1))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(list::add,
                         throwable -> calculatorView.showError(throwable.getMessage()),
@@ -63,6 +66,33 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .flatMap(calculateK2OList -> calculatorModel.getPhK2O(calculateK2OList.get(0).value)
                         .zipWith(Single.just(calculateK2OList), Pair::new)
                         .map(doubleListPair -> calculateK2O(doubleListPair.first, doubleListPair.second)));
+    }
+
+    @Override
+    public Single<Double> getDataCaO(int id) {
+        return calculatorModel.getDataCaO(id)
+                .subscribeOn(Schedulers.io())
+                .flatMap(calculateCaOList -> calculatorModel.getPhCaO(calculateCaOList.get(0).value)
+                        .zipWith(Single.just(calculateCaOList), Pair::new)
+                        .map(doubleListPair -> calculateCaO(doubleListPair.first, doubleListPair.second)));
+    }
+
+    @Override
+    public Single<Double> getDataMgO(int id) {
+        return calculatorModel.getDataMgO(id)
+                .subscribeOn(Schedulers.io())
+                .flatMap(calculateMgOList -> calculatorModel.getPhMgO(calculateMgOList.get(0).value)
+                        .zipWith(Single.just(calculateMgOList), Pair::new)
+                        .map(doubleListPair -> calculateMgO(doubleListPair.first, doubleListPair.second)));
+    }
+
+    @Override
+    public Single<Double> getDataS(int id) {
+        return calculatorModel.getDataS(id)
+                .subscribeOn(Schedulers.io())
+                .flatMap(calculateSList -> calculatorModel.getPhS(calculateSList.get(0).value)
+                        .zipWith(Single.just(calculateSList), Pair::new)
+                        .map(doubleListPair -> calculateS(doubleListPair.first, doubleListPair.second)));
     }
 
     @Override
@@ -102,21 +132,54 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         double productive = calculateH2OList.get(0).productive;
         double vinosP2O5 = calculateH2OList.get(0).vinos_P2O5;
         double settingsP2O5 = calculateH2OList.get(1).value;
-        double phN = value;
-        double P2O5 = vinosP2O5 * productive - settingsP2O5 * kusvP2O5 * 3.96 * phN;
+        double phP2O5 = value;
+        double P2O5 = vinosP2O5 * productive - settingsP2O5 * kusvP2O5 * 3.96 * phP2O5;
         if (P2O5 < 0) return 0;
         else return P2O5;
     }
 
-    private double calculateK2O (Double value, List<CalculateK2O> calculateK2OList) {
+    private double calculateK2O(Double value, List<CalculateK2O> calculateK2OList) {
         double kusvK2O = calculateK2OList.get(0).kusv_K2O;
         double productive = calculateK2OList.get(0).productive;
         double vinosK2O = calculateK2OList.get(0).vinos_K2O;
         double settingsK2O = calculateK2OList.get(1).value;
-        double phN = value;
-        double K2O = vinosK2O * productive - settingsK2O * kusvK2O * 3.96 * phN;
+        double phK2O = value;
+        double K2O = vinosK2O * productive - settingsK2O * kusvK2O * 3.96 * phK2O;
         if (K2O < 0) return 0;
         else return K2O;
+    }
+
+    private double calculateCaO(Double value, List<CalculateCaO> calculateCaOList) {
+        double kusvCaO = calculateCaOList.get(0).kusv_CaO;
+        double productive = calculateCaOList.get(0).productive;
+        double vinosCaO = calculateCaOList.get(0).vinos_CaO;
+        double settingsCaO = calculateCaOList.get(1).value;
+        double phCaO = value;
+        double CaO = vinosCaO * productive - settingsCaO * kusvCaO * 3.96 * 20 * phCaO;
+        if (CaO < 0) return 0;
+        else return CaO;
+    }
+
+    private double calculateMgO(Double value, List<CalculateMgO> calculateMgOList) {
+        double kusvMgO = calculateMgOList.get(0).kusv_MgO;
+        double productive = calculateMgOList.get(0).productive;
+        double vinosMgO = calculateMgOList.get(0).vinos_MgO;
+        double settingsMgO = calculateMgOList.get(1).value;
+        double phMgO = value;
+        double MgO = vinosMgO * productive - settingsMgO * kusvMgO * 3.96 * 12 * phMgO;
+        if (MgO < 0) return 0;
+        else return MgO;
+    }
+
+    private double calculateS(Double value, List<CalculateS> calculateSList) {
+        double kusvS = calculateSList.get(0).kusv_S;
+        double productive = calculateSList.get(0).productive;
+        double vinosS = calculateSList.get(0).vinos_S;
+        double settingsS = calculateSList.get(1).value;
+        double phS = value;
+        double S = vinosS * productive - settingsS * kusvS * 3.96  * phS;
+        if (S < 0) return 0;
+        else return S;
     }
 
     @Override

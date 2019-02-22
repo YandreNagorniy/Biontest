@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "667dfa84d3058112dc8b8e87b349aee8",
+    "identityHash": "bddefa3a225a577ec891841cbc8666f5",
     "entities": [
       {
         "tableName": "SoilFactorsModel",
@@ -44,7 +44,7 @@
       },
       {
         "tableName": "KUsvModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `kusv_N` REAL NOT NULL, `kusv_P2O5` REAL NOT NULL, `kusv_K2O` REAL NOT NULL, `kusv_Ca` REAL NOT NULL, `kusv_MgO` REAL NOT NULL, `kusv_S` REAL NOT NULL, `kusv_Zn` REAL NOT NULL, `kusv_Mo` REAL NOT NULL, `kusv_Cu` REAL NOT NULL, `kusv_Mn` REAL NOT NULL, `kusv_Co` REAL NOT NULL, `kusv_B` REAL NOT NULL, `kusv_Fe` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `kusv_N` REAL NOT NULL, `kusv_P2O5` REAL NOT NULL, `kusv_K2O` REAL NOT NULL, `kusv_CaO` REAL NOT NULL, `kusv_MgO` REAL NOT NULL, `kusv_S` REAL NOT NULL, `kusv_Zn` REAL NOT NULL, `kusv_Mo` REAL NOT NULL, `kusv_Cu` REAL NOT NULL, `kusv_Mn` REAL NOT NULL, `kusv_Co` REAL NOT NULL, `kusv_B` REAL NOT NULL, `kusv_Fe` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -78,7 +78,7 @@
           },
           {
             "fieldPath": "Ca",
-            "columnName": "kusv_Ca",
+            "columnName": "kusv_CaO",
             "affinity": "REAL",
             "notNull": true
           },
@@ -402,7 +402,7 @@
       },
       {
         "tableName": "VinosModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `vinos_N` REAL NOT NULL, `vinos_P2O5` REAL NOT NULL, `vinos_K2O` REAL NOT NULL, `vinos_Ca` REAL NOT NULL, `vinos_MgO` REAL NOT NULL, `vinos_S` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `vinos_N` REAL NOT NULL, `vinos_P2O5` REAL NOT NULL, `vinos_K2O` REAL NOT NULL, `vinos_CaO` REAL NOT NULL, `vinos_MgO` REAL NOT NULL, `vinos_S` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -436,7 +436,7 @@
           },
           {
             "fieldPath": "Ca",
-            "columnName": "vinos_Ca",
+            "columnName": "vinos_CaO",
             "affinity": "REAL",
             "notNull": true
           },
@@ -719,7 +719,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"667dfa84d3058112dc8b8e87b349aee8\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"bddefa3a225a577ec891841cbc8666f5\")"
     ]
   }
 }

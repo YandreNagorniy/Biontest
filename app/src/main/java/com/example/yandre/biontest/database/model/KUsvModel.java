@@ -17,7 +17,7 @@ public class KUsvModel {
     private double P2O5;
     @ColumnInfo(name = "kusv_K2O")
     private double K2O;
-    @ColumnInfo(name = "kusv_Ca")
+    @ColumnInfo(name = "kusv_CaO")
     private double Ca;
     @ColumnInfo(name = "kusv_MgO")
     private double MgO;

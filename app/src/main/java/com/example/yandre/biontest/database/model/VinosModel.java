@@ -16,7 +16,7 @@ public class VinosModel {
     private double P2O5;
     @ColumnInfo(name = "vinos_K2O")
     private double K2O;
-    @ColumnInfo(name = "vinos_Ca")
+    @ColumnInfo(name = "vinos_CaO")
     private double Ca;
     @ColumnInfo(name = "vinos_MgO")
     private double MgO;
