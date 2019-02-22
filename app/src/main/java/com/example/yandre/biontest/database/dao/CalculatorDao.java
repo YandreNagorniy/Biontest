@@ -7,6 +7,7 @@ import android.arch.persistence.room.Query;
 
 import com.example.yandre.biontest.database.model.CalculatorModel;
 import com.example.yandre.biontest.pojo.CalculateH2O;
+import com.example.yandre.biontest.pojo.CalculateK2O;
 import com.example.yandre.biontest.pojo.CalculateN;
 import com.example.yandre.biontest.pojo.CalculateP2O5;
 
@@ -49,6 +50,10 @@ public interface CalculatorDao {
             "WHERE v.id = :id and (s.subTitle = :P2O5 or s.subTitle = :ph) and  k.id = :id")
     Single<List<CalculateP2O5>> getDataP2O5(long id, String P2O5, String ph);
 
+    @Query("SELECT v.vinos_K2O, c.productive, s.soil_value, k.kusv_K2O  " +
+            "FROM VinosModel v,CalculatorModel c, SoilFactorsModel s, KUsvModel k  " +
+            "WHERE v.id = :id and (s.subTitle = :K2O or s.subTitle = :ph) and  k.id = :id")
+    Single<List<CalculateK2O>> getDataK2O(long id, String K2O, String ph);
 
 //    @Query("Select  soil_value From SoilFactorsModel Where subTitle == \"N\" or subTitle == \"pH\"")
 //    Single<List<Integer>> getSettingsData();
@@ -56,12 +61,12 @@ public interface CalculatorDao {
 //    Single<Integer> getSettingsN(String n);
 
 
-    @Query("Select kusv_N From KUsvModel Where id is :id")
-    Single<Double> getKUsvN(long id);
-
     @Query("Select N From PHModel where ph is :ph")
     Single<Double> getPhN(double ph);
 
     @Query("Select P From PHModel where ph is :ph")
     Single<Double> getPhP2O5(double ph);
+
+    @Query("Select K From PHModel where ph is :ph")
+    Single<Double> getPhK2O(double ph);
 }

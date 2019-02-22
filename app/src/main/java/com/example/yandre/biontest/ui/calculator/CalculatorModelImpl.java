@@ -5,31 +5,21 @@ import com.example.yandre.biontest.database.dao.CalculatorDao;
 import com.example.yandre.biontest.database.dao.VodopotrebDao;
 import com.example.yandre.biontest.database.data.ValueData;
 import com.example.yandre.biontest.pojo.CalculateH2O;
+import com.example.yandre.biontest.pojo.CalculateK2O;
 import com.example.yandre.biontest.pojo.CalculateN;
+import com.example.yandre.biontest.pojo.CalculateP2O5;
 
 import java.util.List;
 
 import io.reactivex.Single;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorModelImpl implements CalculatorModel {
-    private CalculatorPresenter calculatorPresenter;
     private CalculatorDao calculatorDao;
-    private VodopotrebDao vodopotrebDao;
-    private CompositeDisposable compositeDisposable;
 
-    public CalculatorModelImpl(CalculatorPresenter calculatorPresenter) {
-        this.calculatorPresenter = calculatorPresenter;
-
-        compositeDisposable = new CompositeDisposable();
+    CalculatorModelImpl() {
         calculatorDao = App.getInstance().getDatabase().calculatorDao();
-        vodopotrebDao = App.getInstance().getDatabase().vodopotrebDao();
     }
-
-    private int vodopotrebValue;
 
     @Override
     public Single<List<CalculateN>> getDataN(int id) {
@@ -37,37 +27,14 @@ public class CalculatorModelImpl implements CalculatorModel {
     }
 
     @Override
-    public Single<Double> getPhN(double settingsPH) {
-        return calculatorDao.getPhN(settingsPH);
+    public Single<List<CalculateP2O5>> getDataP2O5(int id) {
+        return calculatorDao.getDataP2O5(id, ValueData.P2O5, ValueData.pH);
     }
 
     @Override
-    public void getDataS() {
-
+    public Single<List<CalculateK2O>> getDataK2O(int id) {
+        return calculatorDao.getDataK2O(id, ValueData.K2O, ValueData.pH);
     }
-
-    @Override
-    public void getDataP2O5() {
-
-    }
-
-    @Override
-    public void getDataCa() {
-
-    }
-
-    @Override
-    public void getDataK20() {
-
-    }
-
-    @Override
-    public void getDataMg() {
-
-    }
-
-
-    private List<CalculateH2O> list;
 
     @Override
     public Single<List<CalculateH2O>> getDataH2O(long id) {
@@ -82,22 +49,19 @@ public class CalculatorModelImpl implements CalculatorModel {
 //                .subscribe(calculateH2OList -> list = calculateH2OList));
     }
 
-
-    public void calculateH2O(List<CalculateH2O> calculateH2OList) {
-        double H2O = 0;
-        //не 0, а id-1
-        double productive = calculateH2OList.get(0).productive;
-        double zpv = calculateH2OList.get(0).zpv;
-
-        double result = (productive * vodopotrebValue * 0.043) - zpv;
-        if (result < 0) {
-            H2O = 0;
-        } else H2O = result;
+    @Override
+    public Single<Double> getPhN(double settingsPH) {
+        return calculatorDao.getPhN(settingsPH);
     }
 
-    public void onDestroy() {
-        compositeDisposable.clear();
+    @Override
+    public Single<Double> getPhP2O5(double settingsPH) {
+        return calculatorDao.getPhP2O5(settingsPH);
     }
 
+    @Override
+    public Single<Double> getPhK2O(double settingsPH) {
+        return calculatorDao.getPhK2O(settingsPH);
+    }
 
 }

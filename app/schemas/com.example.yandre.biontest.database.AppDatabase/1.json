@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ef93d709f71c41bb54bd3e670780683a",
+    "identityHash": "667dfa84d3058112dc8b8e87b349aee8",
     "entities": [
       {
         "tableName": "SoilFactorsModel",
@@ -44,7 +44,7 @@
       },
       {
         "tableName": "KUsvModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `kusv_N` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `Ca` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL, `Zn` REAL NOT NULL, `Mo` REAL NOT NULL, `Cu` REAL NOT NULL, `Mn` REAL NOT NULL, `Co` REAL NOT NULL, `B` REAL NOT NULL, `Fe` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `kusv_N` REAL NOT NULL, `kusv_P2O5` REAL NOT NULL, `kusv_K2O` REAL NOT NULL, `kusv_Ca` REAL NOT NULL, `kusv_MgO` REAL NOT NULL, `kusv_S` REAL NOT NULL, `kusv_Zn` REAL NOT NULL, `kusv_Mo` REAL NOT NULL, `kusv_Cu` REAL NOT NULL, `kusv_Mn` REAL NOT NULL, `kusv_Co` REAL NOT NULL, `kusv_B` REAL NOT NULL, `kusv_Fe` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -66,73 +66,73 @@
           },
           {
             "fieldPath": "P2O5",
-            "columnName": "P2O5",
+            "columnName": "kusv_P2O5",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "K2O",
-            "columnName": "K2O",
+            "columnName": "kusv_K2O",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "Ca",
-            "columnName": "Ca",
+            "columnName": "kusv_Ca",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "MgO",
-            "columnName": "MgO",
+            "columnName": "kusv_MgO",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "S",
-            "columnName": "S",
+            "columnName": "kusv_S",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "Zn",
-            "columnName": "Zn",
+            "columnName": "kusv_Zn",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "Mo",
-            "columnName": "Mo",
+            "columnName": "kusv_Mo",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "Cu",
-            "columnName": "Cu",
+            "columnName": "kusv_Cu",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "Mn",
-            "columnName": "Mn",
+            "columnName": "kusv_Mn",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "Co",
-            "columnName": "Co",
+            "columnName": "kusv_Co",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "B",
-            "columnName": "B",
+            "columnName": "kusv_B",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "Fe",
-            "columnName": "Fe",
+            "columnName": "kusv_Fe",
             "affinity": "REAL",
             "notNull": true
           }
@@ -402,7 +402,7 @@
       },
       {
         "tableName": "VinosModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `vinos_N` REAL NOT NULL, `P2O5` REAL NOT NULL, `K2O` REAL NOT NULL, `Ca` REAL NOT NULL, `MgO` REAL NOT NULL, `S` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `vinos_N` REAL NOT NULL, `vinos_P2O5` REAL NOT NULL, `vinos_K2O` REAL NOT NULL, `vinos_Ca` REAL NOT NULL, `vinos_MgO` REAL NOT NULL, `vinos_S` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -424,31 +424,31 @@
           },
           {
             "fieldPath": "P2O5",
-            "columnName": "P2O5",
+            "columnName": "vinos_P2O5",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "K2O",
-            "columnName": "K2O",
+            "columnName": "vinos_K2O",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "Ca",
-            "columnName": "Ca",
+            "columnName": "vinos_Ca",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "MgO",
-            "columnName": "MgO",
+            "columnName": "vinos_MgO",
             "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "S",
-            "columnName": "S",
+            "columnName": "vinos_S",
             "affinity": "REAL",
             "notNull": true
           }
@@ -719,7 +719,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ef93d709f71c41bb54bd3e670780683a\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"667dfa84d3058112dc8b8e87b349aee8\")"
     ]
   }
 }

@@ -8,21 +8,12 @@ public interface CalculatorPresenter {
 
     void getCalculatorData();
 
-//
-//    void calculateS();
-//
-//    void calculateP2O5();
-//
-//    void calculateCa();
-//
-//    void calculateK2O();
-//
-//    void calculateMg();
-//
-//    void calculateH2O();
-
     Single<Double> getDataN(int id);
 
+
+    Single<Double> getDataP2O5(int id);
+
+    Single<Double> getDataK2O(int id);
 
     Single<Double> getDataH20(long id);
 
