@@ -126,21 +126,21 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         double settingsG = list.get(0).value;
         double phN = value;
         double x;
-        double N;
+        double n;
         if (settingsG > 4) x = 64 + settingsG * 0.16;
         else x = settingsG * 16;
-        N = vinosN * productive - (settingsN * 3.96 * kusvN * phN + x);
-        if (N < 0) return 0;
-        else return N;
+        n = vinosN * productive - (settingsN * 3.96 * kusvN * phN + x);
+        if (n < 0) return 0;
+        else return n;
     }
 
     private double calculateH2O(List<CalculateH2O> calculateH2OList) {
         double productive = calculateH2OList.get(0).productive;
         double vodopotreb = calculateH2OList.get(0).value;
         double zpv = calculateH2OList.get(0).zpv;
-        double H2O = (productive * vodopotreb * 0.043) - zpv;
-        if (H2O < 0) return 0;
-        else return H2O;
+        double h2O = (productive * vodopotreb * 0.043) - zpv;
+        if (h2O < 0) return 0;
+        else return h2O;
     }
 
     private double calculateP2O5(Double value, List<CalculateP2O5> calculateH2OList) {
@@ -149,9 +149,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         double vinosP2O5 = calculateH2OList.get(0).vinos_P2O5;
         double settingsP2O5 = calculateH2OList.get(1).value;
         double phP2O5 = value;
-        double P2O5 = vinosP2O5 * productive - settingsP2O5 * kusvP2O5 * 3.96 * phP2O5;
-        if (P2O5 < 0) return 0;
-        else return P2O5;
+        double p2O5 = vinosP2O5 * productive - settingsP2O5 * kusvP2O5 * 3.96 * phP2O5;
+        if (p2O5 < 0) return 0;
+        else return p2O5;
     }
 
     private double calculateK2O(Double value, List<CalculateK2O> calculateK2OList) {
@@ -160,9 +160,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         double vinosK2O = calculateK2OList.get(0).vinos_K2O;
         double settingsK2O = calculateK2OList.get(1).value;
         double phK2O = value;
-        double K2O = vinosK2O * productive - settingsK2O * kusvK2O * 3.96 * phK2O;
-        if (K2O < 0) return 0;
-        else return K2O;
+        double k2O = vinosK2O * productive - settingsK2O * kusvK2O * 3.96 * phK2O;
+        if (k2O < 0) return 0;
+        else return k2O;
     }
 
     private double calculateCaO(Double value, List<CalculateCaO> calculateCaOList) {
@@ -171,9 +171,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         double vinosCaO = calculateCaOList.get(0).vinos_CaO;
         double settingsCaO = calculateCaOList.get(1).value;
         double phCaO = value;
-        double CaO = vinosCaO * productive - settingsCaO * kusvCaO * 3.96 * 20 * phCaO;
-        if (CaO < 0) return 0;
-        else return CaO;
+        double caO = vinosCaO * productive - settingsCaO * kusvCaO * 3.96 * 20 * phCaO;
+        if (caO < 0) return 0;
+        else return caO;
     }
 
     private double calculateMgO(Double value, List<CalculateMgO> calculateMgOList) {
@@ -182,9 +182,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         double vinosMgO = calculateMgOList.get(0).vinos_MgO;
         double settingsMgO = calculateMgOList.get(1).value;
         double phMgO = value;
-        double MgO = vinosMgO * productive - settingsMgO * kusvMgO * 3.96 * 12 * phMgO;
-        if (MgO < 0) return 0;
-        else return MgO;
+        double mgO = vinosMgO * productive - settingsMgO * kusvMgO * 3.96 * 12 * phMgO;
+        if (mgO < 0) return 0;
+        else return mgO;
     }
 
     private double calculateS(Double value, List<CalculateS> calculateSList) {
@@ -193,9 +193,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         double vinosS = calculateSList.get(0).vinos_S;
         double settingsS = calculateSList.get(1).value;
         double phS = value;
-        double S = vinosS * productive - settingsS * kusvS * 3.96 * phS;
-        if (S < 0) return 0;
-        else return S;
+        double s = vinosS * productive - settingsS * kusvS * 3.96 * phS;
+        if (s < 0) return 0;
+        else return s;
     }
 
     @Override

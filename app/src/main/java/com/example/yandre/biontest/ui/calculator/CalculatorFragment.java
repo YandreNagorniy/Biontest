@@ -5,9 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yandre.biontest.R;
@@ -29,8 +33,17 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_calculator, container, false);
         calculatorPresenter = new CalculatorPresenterImpl(this);
+        changeElementsTextSize();
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void changeElementsTextSize() {
+        String k2O = binding.calculatorIncluded.tvK2OFrgCalculator.getSubtitleText();
+        Spannable newk2O = new SpannableString(k2O);
+        newk2O.setSpan(new RelativeSizeSpan(0.6f),1,2, 0);
+        binding.calculatorIncluded.tvK2OFrgCalculator.setSubtitleText(newk2O);
     }
 
     @Override
@@ -45,31 +58,31 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
             switch (element.getElement()) {
                 case N:
                     binding.calculatorIncluded.tvNFrgCalculator
-                            .setElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case P2O5:
                     binding.calculatorIncluded.tvP2O5FrgCalculator
-                            .setElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case K2O:
                     binding.calculatorIncluded.tvK2OFrgCalculator
-                            .setElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case CaO:
                     binding.calculatorIncluded.tvCaFrgCalculator
-                            .setElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case MgO:
                     binding.calculatorIncluded.tvMgFrgCalculator
-                            .setElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case S:
                     binding.calculatorIncluded.tvSFrgCalculator
-                            .setElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case H2O:
                     binding.calculatorIncluded.tvH2OFrgCalculator
-                            .setElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
             }
         }

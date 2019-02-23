@@ -2,6 +2,7 @@ package com.example.yandre.biontest.custom;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.text.Spannable;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -42,7 +43,19 @@ public class ChemistryView extends FrameLayout {
         array.recycle();
     }
 
-    public void setElement(String element) {
+    public void setValueElement(String element) {
         edValue.setText(element);
+    }
+
+    public String getSubtitleText() {
+        return String.valueOf(tvSubTitle.getText());
+    }
+
+    public void setSubtitleText(String text) {
+        tvSubTitle.setText(text);
+    }
+
+    public void setSubtitleText(Spannable text) {
+        tvSubTitle.setText(text, TextView.BufferType.SPANNABLE);
     }
 }
