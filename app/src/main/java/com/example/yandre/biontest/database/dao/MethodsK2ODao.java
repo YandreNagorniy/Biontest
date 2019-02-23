@@ -32,5 +32,5 @@ public interface MethodsK2ODao {
 
 
 //        @Update
-//    void update(SettingsModel user);
+//    void update(SettingsRepository user);
 }

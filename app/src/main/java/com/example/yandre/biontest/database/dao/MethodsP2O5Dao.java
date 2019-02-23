@@ -31,5 +31,5 @@ public interface MethodsP2O5Dao {
     void delete(long id);
 
 //        @Update
-//    void update(SettingsModel user);
+//    void update(SettingsRepository user);
 }

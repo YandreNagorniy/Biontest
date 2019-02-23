@@ -32,5 +32,5 @@ public interface PotrebOsadkiDao {
 
 
 //        @Update
-//    void update(SettingsModel user);
+//    void update(SettingsRepository user);
 }

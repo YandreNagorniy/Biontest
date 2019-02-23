@@ -6,11 +6,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yandre.biontest.R;
+import com.example.yandre.biontest.adapters.SoilFactorsAdapter;
 import com.example.yandre.biontest.databinding.FragmentSettingsBinding;
 import com.example.yandre.biontest.database.model.SoilFactorsModel;
 
@@ -18,8 +20,7 @@ import java.util.List;
 
 public class SettingsFragment extends Fragment implements SettingsView {
     FragmentSettingsBinding binding;
-    SettingsModel settingsModel;
-
+    SettingsPresenter settingsPresenter;
 
     @Nullable
     @Override
@@ -27,20 +28,21 @@ public class SettingsFragment extends Fragment implements SettingsView {
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_settings, container, false);
-        settingsModel = new SettingsModelImpl(this);
-
+        settingsPresenter = new SettingsPresenterImpl(this);
         binding.rvSoilFactors.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        settingsModel.loadSoilFactors();
 
         return binding.getRoot();
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        settingsPresenter.getSettingsData();
+    }
+
+    @Override
     public void displayData(List<SoilFactorsModel> soilList) {
-        if (soilList.size() == 0) {
-//            нету данных по почве
-        }
-//        RecyclerView.Adapter adapter = new TSoilFactorsAdapter(getActivity(), soilList);
-//        binding.rvSoilFactors.setAdapter(adapter);
+        RecyclerView.Adapter adapter = new SoilFactorsAdapter(getActivity(), soilList);
+        binding.rvSoilFactors.setAdapter(adapter);
     }
 }

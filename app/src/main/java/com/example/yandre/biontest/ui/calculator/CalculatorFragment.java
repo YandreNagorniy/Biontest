@@ -40,7 +40,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     }
 
     @Override
-    public void fillData(List<ElementModel> list) {
+    public void displayData(List<ElementModel> list) {
         for (ElementModel element : list) {
             switch (element.getElement()) {
                 case N:

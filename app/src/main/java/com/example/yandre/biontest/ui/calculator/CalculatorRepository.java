@@ -12,7 +12,7 @@ import java.util.List;
 
 import io.reactivex.Single;
 
-public interface CalculatorModel {
+public interface CalculatorRepository {
 
     Single<List<CalculateN>> getDataN(int id);
 

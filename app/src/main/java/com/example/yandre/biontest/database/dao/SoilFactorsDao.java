@@ -15,7 +15,7 @@ import io.reactivex.Flowable;
 public interface SoilFactorsDao {
 
     @Query("SELECT * FROM SoilFactorsModel")
-    Flowable<List<SoilFactorsModel>> getSoilFactors();
+    Flowable<List<SoilFactorsModel>> getAllSoilFactors();
 //
 //    @Query("SELECT * FROM SoilFactorsModel WHERE id IS :id")
 //    Single<SoilFactorsModel> getSoilFactor(long id);
@@ -30,5 +30,5 @@ public interface SoilFactorsDao {
 //    void delete(long id);
 
 //        @Update
-//    void update(SettingsModel user);
+//    void update(SettingsRepository user);
 }

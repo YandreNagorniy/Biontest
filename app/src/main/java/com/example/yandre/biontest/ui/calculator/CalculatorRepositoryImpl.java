@@ -2,7 +2,6 @@ package com.example.yandre.biontest.ui.calculator;
 
 import com.example.yandre.biontest.App;
 import com.example.yandre.biontest.database.dao.CalculatorDao;
-import com.example.yandre.biontest.database.dao.VodopotrebDao;
 import com.example.yandre.biontest.database.data.ValueData;
 import com.example.yandre.biontest.pojo.CalculateCaO;
 import com.example.yandre.biontest.pojo.CalculateH2O;
@@ -15,12 +14,11 @@ import com.example.yandre.biontest.pojo.CalculateS;
 import java.util.List;
 
 import io.reactivex.Single;
-import io.reactivex.disposables.CompositeDisposable;
 
-public class CalculatorModelImpl implements CalculatorModel {
+public class CalculatorRepositoryImpl implements CalculatorRepository {
     private CalculatorDao calculatorDao;
 
-    CalculatorModelImpl() {
+    CalculatorRepositoryImpl() {
         calculatorDao = App.getInstance().getDatabase().calculatorDao();
     }
 

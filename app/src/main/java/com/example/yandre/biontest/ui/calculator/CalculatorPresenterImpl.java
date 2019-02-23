@@ -18,19 +18,17 @@ import java.util.List;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Action;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorPresenterImpl implements CalculatorPresenter {
     private CalculatorView calculatorView;
-    private CalculatorModel calculatorModel;
+    private CalculatorRepository calculatorRepository;
     private CompositeDisposable compositeDisposable;
 
     CalculatorPresenterImpl(CalculatorView calculatorView) {
-        compositeDisposable = new CompositeDisposable();
-        calculatorModel = new CalculatorModelImpl();
         this.calculatorView = calculatorView;
+        calculatorRepository = new CalculatorRepositoryImpl();
+        compositeDisposable = new CompositeDisposable();
     }
 
     @Override
@@ -48,14 +46,14 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .buffer(7)
                 .cache()
-                .subscribe(elementModels -> calculatorView.fillData(elementModels)));
+                .subscribe(elementModels -> calculatorView.displayData(elementModels)));
     }
 
     @Override
     public Single<ElementModel> getDataN(int id) {
-        return calculatorModel.getDataN(id)
+        return calculatorRepository.getDataN(id)
                 .subscribeOn(Schedulers.io())
-                .flatMap(calculateNList -> calculatorModel.getPhN(calculateNList.get(1).value)
+                .flatMap(calculateNList -> calculatorRepository.getPhN(calculateNList.get(1).value)
                         .zipWith(Single.just(calculateNList), Pair::new))
                 .map(doubleListPair -> calculateN(doubleListPair.first, doubleListPair.second))
                 .map(n -> new ElementModel(TypeElement.N, n.intValue()));
@@ -63,9 +61,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     @Override
     public Single<ElementModel> getDataP2O5(int id) {
-        return calculatorModel.getDataP2O5(id)
+        return calculatorRepository.getDataP2O5(id)
                 .subscribeOn(Schedulers.io())
-                .flatMap(calculateP2O5List -> calculatorModel.getPhP2O5(calculateP2O5List.get(0).value)
+                .flatMap(calculateP2O5List -> calculatorRepository.getPhP2O5(calculateP2O5List.get(0).value)
                         .zipWith(Single.just(calculateP2O5List), Pair::new)
                         .map(doubleListPair -> calculateP2O5(doubleListPair.first, doubleListPair.second))
                         .map(p2O5 -> new ElementModel(TypeElement.P2O5, p2O5.intValue())));
@@ -73,9 +71,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     @Override
     public Single<ElementModel> getDataK2O(int id) {
-        return calculatorModel.getDataK2O(id)
+        return calculatorRepository.getDataK2O(id)
                 .subscribeOn(Schedulers.io())
-                .flatMap(calculateK2OList -> calculatorModel.getPhK2O(calculateK2OList.get(0).value)
+                .flatMap(calculateK2OList -> calculatorRepository.getPhK2O(calculateK2OList.get(0).value)
                         .zipWith(Single.just(calculateK2OList), Pair::new)
                         .map(doubleListPair -> calculateK2O(doubleListPair.first, doubleListPair.second))
                         .map(k2O -> new ElementModel(TypeElement.K2O, k2O.intValue())));
@@ -83,9 +81,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     @Override
     public Single<ElementModel> getDataCaO(int id) {
-        return calculatorModel.getDataCaO(id)
+        return calculatorRepository.getDataCaO(id)
                 .subscribeOn(Schedulers.io())
-                .flatMap(calculateCaOList -> calculatorModel.getPhCaO(calculateCaOList.get(0).value)
+                .flatMap(calculateCaOList -> calculatorRepository.getPhCaO(calculateCaOList.get(0).value)
                         .zipWith(Single.just(calculateCaOList), Pair::new)
                         .map(doubleListPair -> calculateCaO(doubleListPair.first, doubleListPair.second))
                         .map(caO -> new ElementModel(TypeElement.CaO, caO.intValue())));
@@ -93,9 +91,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     @Override
     public Single<ElementModel> getDataMgO(int id) {
-        return calculatorModel.getDataMgO(id)
+        return calculatorRepository.getDataMgO(id)
                 .subscribeOn(Schedulers.io())
-                .flatMap(calculateMgOList -> calculatorModel.getPhMgO(calculateMgOList.get(0).value)
+                .flatMap(calculateMgOList -> calculatorRepository.getPhMgO(calculateMgOList.get(0).value)
                         .zipWith(Single.just(calculateMgOList), Pair::new)
                         .map(doubleListPair -> calculateMgO(doubleListPair.first, doubleListPair.second))
                         .map(mgO -> new ElementModel(TypeElement.MgO, mgO.intValue())));
@@ -103,9 +101,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     @Override
     public Single<ElementModel> getDataS(int id) {
-        return calculatorModel.getDataS(id)
+        return calculatorRepository.getDataS(id)
                 .subscribeOn(Schedulers.io())
-                .flatMap(calculateSList -> calculatorModel.getPhS(calculateSList.get(0).value)
+                .flatMap(calculateSList -> calculatorRepository.getPhS(calculateSList.get(0).value)
                         .zipWith(Single.just(calculateSList), Pair::new)
                         .map(doubleListPair -> calculateS(doubleListPair.first, doubleListPair.second))
                         .map(s -> new ElementModel(TypeElement.S, s.intValue())));
@@ -114,7 +112,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     @Override
     public Single<ElementModel> getDataH20(long id) {
-        return calculatorModel.getDataH2O(id)
+        return calculatorRepository.getDataH2O(id)
                 .subscribeOn(Schedulers.io())
                 .map(this::calculateH2O)
                 .map(h2O -> new ElementModel(TypeElement.H2O, h2O.intValue()));

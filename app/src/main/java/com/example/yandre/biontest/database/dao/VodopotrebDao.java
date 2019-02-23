@@ -34,5 +34,5 @@ public interface VodopotrebDao {
 //    Single<Integer> getVodopotrebValue(long id);
 
 //        @Update
-//    void update(SettingsModel user);
+//    void update(SettingsRepository user);
 }
