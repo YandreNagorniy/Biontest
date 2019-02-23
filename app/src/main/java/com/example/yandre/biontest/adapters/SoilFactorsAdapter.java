@@ -4,6 +4,9 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -34,7 +37,16 @@ public class SoilFactorsAdapter extends RecyclerView.Adapter<SoilFactorsAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull SoilFactorsAdapter.ViewHolder holder, int position) {
+//        switch (soilFactorsModelList.get(position).getSubTitle()) {
+//            case "K2O": {
+//            }
+//            break;
+//            case "P2O5": {
+//            }
+//            break;
+//            default:
         holder.binding.setSoilFactor(soilFactorsModelList.get(position));
+//        }
     }
 
     @Override

@@ -33,17 +33,11 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_calculator, container, false);
         calculatorPresenter = new CalculatorPresenterImpl(this);
-        changeElementsTextSize();
+        changeElementsTextSize("K2O");
+        changeElementsTextSize("H2O");
+        changeElementsTextSize("P2O5");
 
         return binding.getRoot();
-    }
-
-    @Override
-    public void changeElementsTextSize() {
-        String k2O = binding.calculatorIncluded.tvK2OFrgCalculator.getSubtitleText();
-        Spannable newk2O = new SpannableString(k2O);
-        newk2O.setSpan(new RelativeSizeSpan(0.6f),1,2, 0);
-        binding.calculatorIncluded.tvK2OFrgCalculator.setSubtitleText(newk2O);
     }
 
     @Override
@@ -53,36 +47,59 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     }
 
     @Override
+    public void changeElementsTextSize(String element) {
+        Spannable newElement = new SpannableString(element);
+        switch (element) {
+            case "K2O": {
+                newElement.setSpan(new RelativeSizeSpan(0.6f), 1, 2, 0);
+                binding.calculatorIncluded.tvK2OFrgCalculator.setSubtitleText(newElement);
+            }
+            break;
+            case "H2O": {
+                newElement.setSpan(new RelativeSizeSpan(0.6f), 1, 2, 0);
+                binding.calculatorIncluded.tvH2OFrgCalculator.setSubtitleText(newElement);
+            }
+            break;
+            case "P2O5": {
+                newElement.setSpan(new RelativeSizeSpan(0.6f), 1, 2, 0);
+                newElement.setSpan(new RelativeSizeSpan(0.6f), 3, 4, 0);
+                binding.calculatorIncluded.tvP2O5FrgCalculator.setSubtitleText(newElement);
+            }
+            break;
+        }
+    }
+
+    @Override
     public void displayData(List<ElementModel> list) {
         for (ElementModel element : list) {
             switch (element.getElement()) {
                 case N:
                     binding.calculatorIncluded.tvNFrgCalculator
-                            .setValueElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
                     break;
                 case P2O5:
                     binding.calculatorIncluded.tvP2O5FrgCalculator
-                            .setValueElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
                     break;
                 case K2O:
                     binding.calculatorIncluded.tvK2OFrgCalculator
-                            .setValueElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
                     break;
                 case CaO:
                     binding.calculatorIncluded.tvCaFrgCalculator
-                            .setValueElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
                     break;
                 case MgO:
                     binding.calculatorIncluded.tvMgFrgCalculator
-                            .setValueElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
                     break;
                 case S:
                     binding.calculatorIncluded.tvSFrgCalculator
-                            .setValueElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
                     break;
                 case H2O:
                     binding.calculatorIncluded.tvH2OFrgCalculator
-                            .setValueElement(String.valueOf(element.getValue()));
+                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
                     break;
             }
         }

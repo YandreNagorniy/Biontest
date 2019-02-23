@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:text="@{soilFactor.subTitle}"
             android:textColor="@color/textColorApp"
-            android:textSize="32sp"
+            android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
@@ -48,7 +48,7 @@
 
         <EditText
             android:id="@+id/etValue"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
@@ -60,7 +60,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvSubtitle"
             app:layout_constraintTop_toTopOf="@id/tvSubtitle"
-
             tools:text="8" />
 
     </android.support.constraint.ConstraintLayout>

@@ -57,7 +57,7 @@ public class AddStartData {
         List<SoilFactorsModel> soilFactorsList = new ArrayList<>();
         soilFactorsList.add(new SoilFactorsModel("Гумус", "g", 3.2));
         soilFactorsList.add(new SoilFactorsModel("title", "pH", 6.0));
-        soilFactorsList.add(new SoilFactorsModel("title", "N", 10));
+        soilFactorsList.add(new SoilFactorsModel("title", "N", 10.0));
         soilFactorsList.add(new SoilFactorsModel("title", "P2O5", 27));
         soilFactorsList.add(new SoilFactorsModel("title", "K2O", 329));
         soilFactorsList.add(new SoilFactorsModel("title", "CaO", 5.25));

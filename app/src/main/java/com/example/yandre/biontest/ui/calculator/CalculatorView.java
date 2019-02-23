@@ -6,11 +6,9 @@ import java.util.List;
 
 public interface CalculatorView {
 
-//    void fillData(List<ElementModel> list);
-
-    void  changeElementsTextSize();
-
     void displayData(List<ElementModel> list);
+
+    void changeElementsTextSize(String element);
 
     void showError(String message);
 }

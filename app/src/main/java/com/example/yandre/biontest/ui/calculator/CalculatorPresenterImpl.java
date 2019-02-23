@@ -56,7 +56,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .flatMap(calculateNList -> calculatorRepository.getPhN(calculateNList.get(1).value)
                         .zipWith(Single.just(calculateNList), Pair::new))
                 .map(doubleListPair -> calculateN(doubleListPair.first, doubleListPair.second))
-                .map(n -> new ElementModel(TypeElement.N, n.intValue()));
+                .map(n -> new ElementModel(TypeElement.N, n));
     }
 
     @Override
@@ -66,7 +66,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .flatMap(calculateP2O5List -> calculatorRepository.getPhP2O5(calculateP2O5List.get(0).value)
                         .zipWith(Single.just(calculateP2O5List), Pair::new)
                         .map(doubleListPair -> calculateP2O5(doubleListPair.first, doubleListPair.second))
-                        .map(p2O5 -> new ElementModel(TypeElement.P2O5, p2O5.intValue())));
+                        .map(p2O5 -> new ElementModel(TypeElement.P2O5, p2O5)));
     }
 
     @Override
@@ -76,7 +76,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .flatMap(calculateK2OList -> calculatorRepository.getPhK2O(calculateK2OList.get(0).value)
                         .zipWith(Single.just(calculateK2OList), Pair::new)
                         .map(doubleListPair -> calculateK2O(doubleListPair.first, doubleListPair.second))
-                        .map(k2O -> new ElementModel(TypeElement.K2O, k2O.intValue())));
+                        .map(k2O -> new ElementModel(TypeElement.K2O, k2O)));
     }
 
     @Override
@@ -86,7 +86,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .flatMap(calculateCaOList -> calculatorRepository.getPhCaO(calculateCaOList.get(0).value)
                         .zipWith(Single.just(calculateCaOList), Pair::new)
                         .map(doubleListPair -> calculateCaO(doubleListPair.first, doubleListPair.second))
-                        .map(caO -> new ElementModel(TypeElement.CaO, caO.intValue())));
+                        .map(caO -> new ElementModel(TypeElement.CaO, caO)));
     }
 
     @Override
@@ -96,7 +96,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .flatMap(calculateMgOList -> calculatorRepository.getPhMgO(calculateMgOList.get(0).value)
                         .zipWith(Single.just(calculateMgOList), Pair::new)
                         .map(doubleListPair -> calculateMgO(doubleListPair.first, doubleListPair.second))
-                        .map(mgO -> new ElementModel(TypeElement.MgO, mgO.intValue())));
+                        .map(mgO -> new ElementModel(TypeElement.MgO, mgO)));
     }
 
     @Override
@@ -106,7 +106,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .flatMap(calculateSList -> calculatorRepository.getPhS(calculateSList.get(0).value)
                         .zipWith(Single.just(calculateSList), Pair::new)
                         .map(doubleListPair -> calculateS(doubleListPair.first, doubleListPair.second))
-                        .map(s -> new ElementModel(TypeElement.S, s.intValue())));
+                        .map(s -> new ElementModel(TypeElement.S, s)));
 
     }
 
@@ -115,7 +115,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         return calculatorRepository.getDataH2O(id)
                 .subscribeOn(Schedulers.io())
                 .map(this::calculateH2O)
-                .map(h2O -> new ElementModel(TypeElement.H2O, h2O.intValue()));
+                .map(h2O -> new ElementModel(TypeElement.H2O, h2O));
     }
 
     private double calculateN(Double value, List<CalculateN> list) {
