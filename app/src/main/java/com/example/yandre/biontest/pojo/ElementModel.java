@@ -2,9 +2,9 @@ package com.example.yandre.biontest.pojo;
 
 public class ElementModel {
     private TypeElement element;
-    private double value;
+    private int value;
 
-    public ElementModel(TypeElement element, double value) {
+    public ElementModel(TypeElement element, int value) {
         this.element = element;
         this.value = value;
     }
@@ -18,11 +18,11 @@ public class ElementModel {
     }
 
 
-    public double getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(int value) {
         this.value = value;
     }
 }

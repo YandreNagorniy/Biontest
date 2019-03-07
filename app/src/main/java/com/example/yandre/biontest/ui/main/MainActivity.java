@@ -50,9 +50,6 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
         handleToolbar();
         handleMenu();
         handleDrawer();
-
-        //  showCalculatorFragment();
-
         addFragment();
         showCalculatorFragment();
         mMenuAdapter.setViewSelected(0, true);
@@ -92,22 +89,17 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
 
     @Override
     public void onOptionClicked(int position, Object objectClicked) {
-        // Set the toolbar title
-        setTitle(mTitles.get(position));
-        // Set the right options selected
-        mMenuAdapter.setViewSelected(position, true);
+        setTitle(mTitles.get(position));         // Set the toolbar title
+        mMenuAdapter.setViewSelected(position, true);     // Set the right options selected
         switch (position) {
             case 0:
-//                goToFragment(new CalculatorFragment(), false);
                 showCalculatorFragment();
                 break;
             case 1:
-//                goToFragment(new SettingsFragment(), false);
                 showSettingsFragment();
                 break;
 
             case 2:
-//                goToFragment(new AboutUsFragment(), false);
                 showAboutUsFragment();
                 break;
         }
@@ -136,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
     private void showSettingsFragment() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        if (settingsFragment.isAdded()) { // if the fragment is already in container
+        if (settingsFragment.isAdded()) {
             transaction.show(settingsFragment);
         }
         if (calculatorFragment.isAdded()) {
@@ -153,12 +145,9 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
     private void showAboutUsFragment() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        if (aboutUsFragment.isAdded()) { // if the fragment is already in container
+        if (aboutUsFragment.isAdded()) {
             transaction.show(aboutUsFragment);
         }
-//        else { // fragment needs to be added to frame container
-//            transaction.add(R.id.container, aboutUsFragment);
-//        }
         if (calculatorFragment.isAdded()) {
             transaction.hide(calculatorFragment);
         }
@@ -174,13 +163,11 @@ public class MainActivity extends AppCompatActivity implements DuoMenuView.OnMen
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.container, aboutUsFragment);
         transaction.add(R.id.container, settingsFragment);
-//        transaction.hide(aboutUsFragment);
-//        transaction.hide(settingsFragment);
-
         transaction.add(R.id.container, calculatorFragment);
         transaction.commit();
     }
-        private class ViewHolder {
+
+    private class ViewHolder {
         private DuoDrawerLayout mDuoDrawerLayout;
         private DuoMenuView mDuoMenuView;
 //        private Toolbar mToolbar;

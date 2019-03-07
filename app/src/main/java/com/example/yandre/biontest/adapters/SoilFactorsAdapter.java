@@ -9,6 +9,7 @@ import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.yandre.biontest.R;
 
@@ -46,7 +47,7 @@ public class SoilFactorsAdapter extends RecyclerView.Adapter<SoilFactorsAdapter.
 //            break;
 //            default:
         holder.binding.setSoilFactor(soilFactorsModelList.get(position));
-//        }
+        //        }
     }
 
     @Override

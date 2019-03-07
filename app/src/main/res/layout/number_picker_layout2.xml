@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Button
-        android:id="@+id/decrement"
-        android:layout_width="56dp"
-        android:background="@drawable/ic_decrement"
-        android:layout_height="56dp"
-        android:padding="0dp"
-        android:textSize="25sp" />
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.yandre.biontest.database.model.CalculatorModel" />
+
+        <variable
+            name="view"
+            type="com.example.yandre.biontest.ui.calculator.CalculatorFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/decrement"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/ic_decrement"
+            android:padding="0dp"
+            android:textSize="25sp" />
 
 
-    <EditText
-        android:id="@+id/display"
-        android:layout_width="64dp"
-        android:layout_height="56dp"
-        android:layout_gravity="center"
-        android:background="@drawable/bg_value"
-        android:gravity="center"
-        android:inputType="number"
-        android:text="@string/display"
-        android:textColor="@android:color/black" />
+        <EditText
+            android:id="@+id/display"
+            android:layout_width="64dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_value"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="@string/display"
+            android:textColor="@android:color/black" />
 
-    <Button
-        android:id="@+id/increment"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:padding="0dp"
-        android:background="@drawable/ic_increment"
-        android:textSize="25sp" />
-    <!--android:background="@drawable/btn_right"-->
-    <!--android:layout_height="56dp"-->
+        <Button
+            android:id="@+id/increment"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/ic_increment"
+            android:padding="0dp"
+            android:textSize="25sp" />
+        <!--android:background="@drawable/btn_right"-->
+        <!--android:layout_height="56dp"-->
 
-</LinearLayout>
+    </LinearLayout>
+
+</layout>

@@ -10,11 +10,9 @@ import io.reactivex.Flowable;
 
 public class SettingsRepositoryImpl implements SettingsRepository {
 
-    private SettingsPresenter settingsPresenter;
     private SoilFactorsDao soilFactorsDao;
 
-    SettingsRepositoryImpl(SettingsPresenter settingsPresenter) {
-        this.settingsPresenter = settingsPresenter;
+    SettingsRepositoryImpl() {
         soilFactorsDao = App.getInstance().getDatabase().soilFactorsDao();
     }
 

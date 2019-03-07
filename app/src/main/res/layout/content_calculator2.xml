@@ -5,8 +5,12 @@
     <data>
 
         <variable
-            name="calculatorItem"
-            type="com.example.yandre.biontest.database.model.CalculatorModel"/>
+            name="model"
+            type="com.example.yandre.biontest.database.model.CalculatorModel" />
+
+        <variable
+            name="view"
+            type="com.example.yandre.biontest.ui.calculator.CalculatorFragment" />
     </data>
 
     <LinearLayout
@@ -48,7 +52,7 @@
                 app:max="100"
                 app:min="0"
                 app:unit="2"
-                app:value="-5"/>
+                app:value="70" />
         </LinearLayout>
 
         <LinearLayout
@@ -88,7 +92,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:sub_title="N"
                     app:title="Азот"
-                    app:value="7" />
+                    app:value="8" />
 
                 <android.support.constraint.Guideline
                     android:id="@+id/gLine1"

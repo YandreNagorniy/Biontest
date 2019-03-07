@@ -3,6 +3,10 @@ package com.example.yandre.biontest.database.model;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.telephony.PhoneNumberUtils;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 
 //Почвенные факторы
 @Entity
@@ -39,6 +43,17 @@ public class SoilFactorsModel {
 
     public String getSubTitle() {
         return subTitle;
+    }
+
+    public Spannable getSpannableSubTitle() {
+        Spannable newElement = new SpannableString(subTitle);
+        char[] array = subTitle.toCharArray();
+        for (int i = 0; i < array.length; i++) {
+            if (Character.isDigit(array[i])) {
+                newElement.setSpan(new RelativeSizeSpan(0.6f), i,  i+1,0);
+            }
+        }
+        return newElement;
     }
 
     public void setSubTitle(String subTitle) {

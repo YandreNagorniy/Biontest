@@ -1,7 +1,9 @@
 package com.example.yandre.biontest.ui.calculator;
 
+import android.databinding.ObservableField;
 import android.util.Pair;
 
+import com.example.yandre.biontest.database.model.CalculatorModel;
 import com.example.yandre.biontest.pojo.CalculateCaO;
 import com.example.yandre.biontest.pojo.CalculateH2O;
 import com.example.yandre.biontest.pojo.CalculateK2O;
@@ -9,6 +11,7 @@ import com.example.yandre.biontest.pojo.CalculateMgO;
 import com.example.yandre.biontest.pojo.CalculateN;
 import com.example.yandre.biontest.pojo.CalculateP2O5;
 import com.example.yandre.biontest.pojo.CalculateS;
+import com.example.yandre.biontest.pojo.CalculatorItems;
 import com.example.yandre.biontest.pojo.ElementModel;
 import com.example.yandre.biontest.pojo.TypeElement;
 
@@ -24,15 +27,18 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
     private CalculatorView calculatorView;
     private CalculatorRepository calculatorRepository;
     private CompositeDisposable compositeDisposable;
+    private int productive;
 
-    CalculatorPresenterImpl(CalculatorView calculatorView) {
+    CalculatorPresenterImpl(CalculatorView calculatorView, int productive) {
         this.calculatorView = calculatorView;
+        this.productive = productive;
         calculatorRepository = new CalculatorRepositoryImpl();
         compositeDisposable = new CompositeDisposable();
     }
 
     @Override
-    public void getCalculatorData() {
+    public void getCalculatorData(int productive) {
+        this.productive = productive;
         List<Single<ElementModel>> list = new ArrayList<>();
         list.add(getDataN(1));
         list.add(getDataP2O5(1));
@@ -46,7 +52,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .buffer(7)
                 .cache()
-                .subscribe(elementModels -> calculatorView.displayData(elementModels)));
+                .subscribe(itemList -> calculatorView.displayData(itemList)));
     }
 
     @Override
@@ -118,9 +124,9 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .map(h2O -> new ElementModel(TypeElement.H2O, h2O));
     }
 
-    private double calculateN(Double value, List<CalculateN> list) {
+    private int calculateN(Double value, List<CalculateN> list) {
         double kusvN = list.get(0).kusv_N;
-        double productive = list.get(0).productive;
+//        double productive = list.get(0).productive;
         double vinosN = list.get(0).vinos_N;
         double settingsN = list.get(2).value;        //n and g maybe replace
         double settingsG = list.get(0).value;
@@ -131,71 +137,102 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         else x = settingsG * 16;
         n = vinosN * productive - (settingsN * 3.96 * kusvN * phN + x);
         if (n < 0) return 0;
-        else return n;
+        else return (int) Math.round(n);
     }
 
-    private double calculateH2O(List<CalculateH2O> calculateH2OList) {
-        double productive = calculateH2OList.get(0).productive;
+    private int calculateH2O(List<CalculateH2O> calculateH2OList) {
+//        double productive = calculateH2OList.get(0).productive;
         double vodopotreb = calculateH2OList.get(0).value;
         double zpv = calculateH2OList.get(0).zpv;
         double h2O = (productive * vodopotreb * 0.043) - zpv;
         if (h2O < 0) return 0;
-        else return h2O;
+        else return (int) Math.round(h2O);
     }
 
-    private double calculateP2O5(Double value, List<CalculateP2O5> calculateH2OList) {
+    private int calculateP2O5(Double value, List<CalculateP2O5> calculateH2OList) {
         double kusvP2O5 = calculateH2OList.get(0).kusv_P2O5;
-        double productive = calculateH2OList.get(0).productive;
+//        double productive = calculateH2OList.get(0).productive;
         double vinosP2O5 = calculateH2OList.get(0).vinos_P2O5;
         double settingsP2O5 = calculateH2OList.get(1).value;
         double phP2O5 = value;
         double p2O5 = vinosP2O5 * productive - settingsP2O5 * kusvP2O5 * 3.96 * phP2O5;
         if (p2O5 < 0) return 0;
-        else return p2O5;
+        else return (int) Math.round(p2O5);
     }
 
-    private double calculateK2O(Double value, List<CalculateK2O> calculateK2OList) {
+    private int calculateK2O(Double value, List<CalculateK2O> calculateK2OList) {
         double kusvK2O = calculateK2OList.get(0).kusv_K2O;
-        double productive = calculateK2OList.get(0).productive;
+//        double productive = calculateK2OList.get(0).productive;
         double vinosK2O = calculateK2OList.get(0).vinos_K2O;
         double settingsK2O = calculateK2OList.get(1).value;
         double phK2O = value;
         double k2O = vinosK2O * productive - settingsK2O * kusvK2O * 3.96 * phK2O;
         if (k2O < 0) return 0;
-        else return k2O;
+        else return (int) Math.round(k2O);
     }
 
-    private double calculateCaO(Double value, List<CalculateCaO> calculateCaOList) {
+    private int calculateCaO(Double value, List<CalculateCaO> calculateCaOList) {
         double kusvCaO = calculateCaOList.get(0).kusv_CaO;
-        double productive = calculateCaOList.get(0).productive;
+//        double productive = calculateCaOList.get(0).productive;
         double vinosCaO = calculateCaOList.get(0).vinos_CaO;
         double settingsCaO = calculateCaOList.get(1).value;
         double phCaO = value;
         double caO = vinosCaO * productive - settingsCaO * kusvCaO * 3.96 * 20 * phCaO;
         if (caO < 0) return 0;
-        else return caO;
+        else return (int) Math.round(caO);
     }
 
-    private double calculateMgO(Double value, List<CalculateMgO> calculateMgOList) {
+    private int calculateMgO(Double value, List<CalculateMgO> calculateMgOList) {
         double kusvMgO = calculateMgOList.get(0).kusv_MgO;
-        double productive = calculateMgOList.get(0).productive;
+//        double productive = calculateMgOList.get(0).productive;
         double vinosMgO = calculateMgOList.get(0).vinos_MgO;
         double settingsMgO = calculateMgOList.get(1).value;
         double phMgO = value;
         double mgO = vinosMgO * productive - settingsMgO * kusvMgO * 3.96 * 12 * phMgO;
         if (mgO < 0) return 0;
-        else return mgO;
+        else return (int) Math.round(mgO);
     }
 
-    private double calculateS(Double value, List<CalculateS> calculateSList) {
+    private int calculateS(Double value, List<CalculateS> calculateSList) {
         double kusvS = calculateSList.get(0).kusv_S;
-        double productive = calculateSList.get(0).productive;
+//        double productive = calculateSList.get(0).productive;
         double vinosS = calculateSList.get(0).vinos_S;
         double settingsS = calculateSList.get(1).value;
         double phS = value;
         double s = vinosS * productive - settingsS * kusvS * 3.96 * phS;
         if (s < 0) return 0;
-        else return s;
+        else return (int) Math.round(s);
+    }
+
+    private void displayData(List<ElementModel> list) {
+        CalculatorItems calculatorModel = new CalculatorItems();
+
+        for (ElementModel element : list) {
+            switch (element.getElement()) {
+                case N:
+                    calculatorModel.setN(element.getValue());
+                    break;
+                case P2O5:
+                    calculatorModel.setP2O5(element.getValue());
+                    break;
+                case K2O:
+                    calculatorModel.setK2O(element.getValue());
+                    break;
+                case CaO:
+                    calculatorModel.setCaO(element.getValue());
+                    break;
+                case MgO:
+                    calculatorModel.setMgO(element.getValue());
+                    break;
+                case S:
+                    calculatorModel.setS(element.getValue());
+                    break;
+                case H2O:
+                    calculatorModel.setH20(element.getValue());
+                    break;
+            }
+        }
+        calculatorView.displayData(calculatorModel);
     }
 
     @Override

@@ -6,7 +6,9 @@ import io.reactivex.Single;
 
 public interface CalculatorPresenter {
 
-    void getCalculatorData();
+//    void getCalculatorData();
+
+    void getCalculatorData(int productive);
 
     Single<ElementModel> getDataN(int id);
 

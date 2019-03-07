@@ -1,6 +1,7 @@
 package com.example.yandre.biontest.ui.calculator;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableField;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,9 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yandre.biontest.R;
+import com.example.yandre.biontest.database.model.CalculatorModel;
 import com.example.yandre.biontest.databinding.FragmentCalculatorBinding;
 import com.example.yandre.biontest.pojo.CalculateN;
+import com.example.yandre.biontest.pojo.CalculatorItems;
 import com.example.yandre.biontest.pojo.ElementModel;
+import com.travijuu.numberpicker.library.Enums.ActionEnum;
+import com.travijuu.numberpicker.library.Interface.ValueChangedListener;
 
 import java.util.List;
 
@@ -25,6 +30,8 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
 
     FragmentCalculatorBinding binding;
     CalculatorPresenter calculatorPresenter;
+    public ObservableField<CalculatorItems> model;
+
 
     @Nullable
     @Override
@@ -32,10 +39,9 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_calculator, container, false);
-        calculatorPresenter = new CalculatorPresenterImpl(this);
-        changeElementsTextSize("K2O");
-        changeElementsTextSize("H2O");
-        changeElementsTextSize("P2O5");
+        calculatorPresenter = new CalculatorPresenterImpl(this,
+                binding.calculatorIncluded.numbPicker.getValue());
+        model = new ObservableField<>();
 
         return binding.getRoot();
     }
@@ -43,7 +49,11 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        calculatorPresenter.getCalculatorData();
+        changeElementsTextSize("K2O");
+        changeElementsTextSize("H2O");
+        changeElementsTextSize("P2O5");
+        binding.calculatorIncluded.numbPicker.setValueChangedListener((value, action)
+                -> calculatorPresenter.getCalculatorData(value));
     }
 
     @Override
@@ -75,34 +85,39 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
             switch (element.getElement()) {
                 case N:
                     binding.calculatorIncluded.tvNFrgCalculator
-                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case P2O5:
                     binding.calculatorIncluded.tvP2O5FrgCalculator
-                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case K2O:
                     binding.calculatorIncluded.tvK2OFrgCalculator
-                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case CaO:
                     binding.calculatorIncluded.tvCaFrgCalculator
-                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case MgO:
                     binding.calculatorIncluded.tvMgFrgCalculator
-                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case S:
                     binding.calculatorIncluded.tvSFrgCalculator
-                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
                 case H2O:
                     binding.calculatorIncluded.tvH2OFrgCalculator
-                            .setValueElement(String.valueOf((int) Math.round(element.getValue())));
+                            .setValueElement(String.valueOf(element.getValue()));
                     break;
             }
         }
+    }
+
+    @Override
+    public void displayData(CalculatorItems calculatorModel) {
+        model.set(calculatorModel);
     }
 
     @Override

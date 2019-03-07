@@ -23,7 +23,6 @@ public class AboutUsFragment extends Fragment {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_about, container, false);
 
-
         return binding.getRoot();
     }
 }

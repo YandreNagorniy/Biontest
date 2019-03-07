@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -13,42 +13,40 @@
     </data>
 
     <android.support.constraint.ConstraintLayout
-        android:background="@drawable/bg_rounder_sqare"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="1dp"
-        android:layout_width="match_parent">
+        android:background="@drawable/bg_rounder_sqare">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_height="18dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:text="@{soilFactor.title}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Натрий" />
+        <!--<TextView-->
+            <!--android:id="@+id/tvTitle"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="18dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:text="@{soilFactor.title}"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--tools:text="Натрий" />-->
 
         <TextView
             android:id="@+id/tvSubtitle"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
             android:layout_width="wrap_content"
             android:text="@{soilFactor.subTitle}"
             android:textColor="@color/textColorApp"
             android:textSize="28sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/etValue"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Na" />
         <!--app:layout_constraintStart_toStartOf="@id/tvTitle"-->
 
         <EditText
             android:id="@+id/etValue"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
@@ -56,10 +54,10 @@
             android:maxLength="3"
             android:text="@{String.valueOf(soilFactor.value)}"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@id/tvSubtitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvSubtitle"
-            app:layout_constraintTop_toTopOf="@id/tvSubtitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tvSubtitle"
+            app:layout_constraintStart_toStartOf="@id/tvSubtitle"
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
             tools:text="8" />
 
     </android.support.constraint.ConstraintLayout>

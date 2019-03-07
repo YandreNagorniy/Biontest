@@ -8,7 +8,7 @@ public class CalculatorModel {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
-    private double N;
+    public double N;
     private double P2O5;
     private double K2O;
     private double CaO;
@@ -19,6 +19,9 @@ public class CalculatorModel {
     private double humidityOfSoil;     //влажность почвы
     private double zpv;
     private double productive;   //урожайность
+
+    public CalculatorModel() {
+    }
 
     public CalculatorModel(double N, double P2O5, double K2O, double CaO, double MgO,
                            double S, double H20, double humidityOfSoil, double zpv, double productive) {

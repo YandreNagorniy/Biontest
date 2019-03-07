@@ -10,7 +10,7 @@ public class SettingsPresenterImpl implements SettingsPresenter {
 
     SettingsPresenterImpl(SettingsView settingsView) {
         this.settingsView = settingsView;
-        settingsRepository = new SettingsRepositoryImpl(this);
+        settingsRepository = new SettingsRepositoryImpl();
         compositeDisposable = new CompositeDisposable();
     }
 

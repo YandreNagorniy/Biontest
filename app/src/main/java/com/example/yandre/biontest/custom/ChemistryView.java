@@ -14,6 +14,7 @@ public class ChemistryView extends FrameLayout {
     private TextView tvTitle;
     private TextView tvSubTitle;
     private EditText edValue;
+    private int value;
 
     public ChemistryView(Context context) {
         this(context, null);
@@ -31,7 +32,7 @@ public class ChemistryView extends FrameLayout {
         TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.ChemistryView);
         String title = array.getString(R.styleable.ChemistryView_title);
         String subTitle = array.getString(R.styleable.ChemistryView_sub_title);
-        int value = array.getInt(R.styleable.ChemistryView_value, 0);
+        value = array.getInt(R.styleable.ChemistryView_value, 0);
 
         tvTitle = findViewById(R.id.tvTitle);
         tvSubTitle = findViewById(R.id.tvSubtitle);

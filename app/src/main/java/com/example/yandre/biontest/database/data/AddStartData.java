@@ -220,7 +220,23 @@ public class AddStartData {
                 App.getInstance().getDatabase().potrebOsadkiDao();
 
         List<PotrebOsadkiModel> potrebOsadkiList = new ArrayList<>();
-        potrebOsadkiList.add(new PotrebOsadkiModel("Озимая пшеница", 246));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Озимая пшеница", 2779));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Озимый ячмень", 2500));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Яровая пшеница", 2736));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Яровой ячмень", 2672));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Озимая рожь", 2586));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Тритикале", 2478));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Соя", 5897));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Сахарная свекла", 227));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Озимый рапс", 5144));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Картофель", 514));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Кукуруза", 2127));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Люцернна (сено) 1 год", 1427));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Люцернна (сено) 2 год", 1302));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Люцернна (сено) 3 год", 1277));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Люцернна (сено) 4 год", 1252));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Яровой рапс", 3746.5));
+
 
         Completable.fromAction(() -> potrebOsadkiDao.insertList(potrebOsadkiList))
                 .subscribeOn(Schedulers.io())

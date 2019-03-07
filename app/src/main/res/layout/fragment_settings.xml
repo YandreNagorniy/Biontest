@@ -91,7 +91,6 @@
                     android:text="Гидротермические факторы"
                     android:textAppearance="@style/TextAppearance.Header" />
 
-
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/clGidroTerm"
                     android:layout_width="match_parent"
@@ -106,8 +105,8 @@
                         android:layout_height="wrap_content"
                         android:text="Осадки за сезон"
                         android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toBottomOf="@id/etOsadki"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@id/etOsadki" />
 
                     <EditText
@@ -126,8 +125,8 @@
                         android:layout_marginTop="8dp"
                         android:text="ЗПВ"
                         android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toBottomOf="@id/etZPV_mm"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@id/etZPV_mm" />
 
                     <EditText
@@ -179,10 +178,10 @@
                         android:gravity="center"
                         android:text="N"
                         android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="@id/cbMineral"
+                        app:layout_constraintBottom_toBottomOf="@id/RadioGroup_N"
                         app:layout_constraintEnd_toStartOf="@id/gl1"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/cbLightGidr" />
+                        app:layout_constraintTop_toTopOf="@id/RadioGroup_N" />
 
                     <android.support.constraint.Guideline
                         android:id="@+id/gl1"
@@ -191,36 +190,33 @@
                         android:orientation="vertical"
                         app:layout_constraintGuide_percent="0.2" />
 
-                    <CheckBox
-                        android:id="@+id/cbLightGidr"
-                        android:layout_width="wrap_content"
+                    <RadioGroup
+                        android:id="@+id/RadioGroup_N"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/margin_small"
-                        android:text="Легкогидр."
-                        android:textSize="16sp"
+                        android:orientation="vertical"
                         app:layout_constraintStart_toEndOf="@id/gl1"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent">
 
-                    <CheckBox
-                        android:id="@+id/cbCheloch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Щелоч."
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="@id/cbLightGidr"
-                        app:layout_constraintTop_toBottomOf="@id/cbLightGidr" />
+                        <RadioButton
+                            android:id="@+id/lightGidr_N"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Легкогидролизуемый" />
 
-                    <CheckBox
-                        android:id="@+id/cbMineral"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Мин."
-                        android:textSize="16sp"
-                        app:layout_constraintBottom_toTopOf="@id/v1"
-                        app:layout_constraintStart_toStartOf="@id/cbLightGidr"
-                        app:layout_constraintTop_toBottomOf="@id/cbCheloch" />
+                        <RadioButton
+                            android:id="@+id/Sheloch_N"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Щелочногидролизуемый" />
+
+                        <RadioButton
+                            android:id="@+id/mineral_N"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Минеральный" />
+
+                    </RadioGroup>
 
                     <View
                         android:id="@+id/v1"
@@ -228,105 +224,9 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/colorLightGray"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cbMineral" />
-
-                    <TextView
-                        android:id="@+id/tvP"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="P"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="@id/cbKirsanov_P"
-                        app:layout_constraintEnd_toStartOf="@id/gl1"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/cbChirikov_P" />
-
-                    <CheckBox
-                        android:id="@+id/cbChirikov_P"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="@dimen/margin_small"
-                        android:text="Чириков"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@id/gl1"
-                        app:layout_constraintTop_toBottomOf="@id/v1" />
-
-                    <CheckBox
-                        android:id="@+id/cbMachigin_P"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Мачигин"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="@id/cbChirikov_P"
-                        app:layout_constraintTop_toBottomOf="@id/cbChirikov_P" />
-
-                    <CheckBox
-                        android:id="@+id/cbKirsanov_P"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Кирсанов"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="@id/cbChirikov_P"
-                        app:layout_constraintTop_toBottomOf="@id/cbMachigin_P" />
-
-                    <View
-                        android:id="@+id/v2"
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@color/colorLightGray"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cbKirsanov_P" />
-
-                    <TextView
-                        android:id="@+id/tvK"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="K"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="@id/cbKirsanov_K"
-                        app:layout_constraintEnd_toStartOf="@id/gl1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/cbChirikov_K" />
-
-                    <CheckBox
-                        android:id="@+id/cbChirikov_K"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="@dimen/margin_small"
-                        android:text="Чириков"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@id/gl1"
-                        app:layout_constraintTop_toBottomOf="@id/v2" />
-
-                    <CheckBox
-                        android:id="@+id/cbMachigin_K"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Мачигин"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="@id/cbChirikov_K"
-                        app:layout_constraintTop_toBottomOf="@id/cbChirikov_K" />
-
-                    <CheckBox
-                        android:id="@+id/cbKirsanov_K"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Кирсанов"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="@id/cbChirikov_K"
-                        app:layout_constraintTop_toBottomOf="@id/cbMachigin_K" />
+                        app:layout_constraintTop_toBottomOf="@id/RadioGroup_N" />
 
                 </android.support.constraint.ConstraintLayout>
             </LinearLayout>
