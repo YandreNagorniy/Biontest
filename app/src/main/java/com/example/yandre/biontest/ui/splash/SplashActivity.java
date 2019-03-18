@@ -15,6 +15,11 @@ public class SplashActivity extends AppCompatActivity {
     private static final String MY_SETTINGS = "my_settings";
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);

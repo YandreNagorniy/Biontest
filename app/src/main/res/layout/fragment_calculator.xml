@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="com.example.yandre.biontest.database.model.CalculatorModel" />
@@ -79,18 +80,33 @@
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/bg_rounder_sqare"
                     android:elevation="2dp"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:padding="8dp">
 
-                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-                        android:id="@+id/spinner"
+                    <TextView
+                        android:id="@+id/cultureTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:entries="@array/plants"
-                        android:gravity="center"
-                        android:textSize="32sp"
-                        app:hintText="Выберите культуру" />
+                        android:layout_weight="1"
+                        android:text="Озимая пшеница"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:src="@drawable/arrow_right" />
+
+                    <!--<com.toptoche.searchablespinnerlibrary.SearchableSpinner-->
+                    <!--android:id="@+id/spinner"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:entries="@array/plants"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textSize="32sp"-->
+                    <!--app:hintText="Выберите культуру" />-->
                 </LinearLayout>
 
                 <include

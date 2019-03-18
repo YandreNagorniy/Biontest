@@ -13,5 +13,7 @@ public interface CalculatorView {
 
     void displayData(CalculatorItems calculatorModel);
 
+    void onClickCulture();
+
     void showError(String message);
 }

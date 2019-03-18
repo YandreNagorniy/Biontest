@@ -2,10 +2,12 @@ package com.example.yandre.biontest.ui.calculator;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yandre.biontest.R;
+import com.example.yandre.biontest.adapters.SoilFactorsAdapter;
 import com.example.yandre.biontest.database.model.CalculatorModel;
 import com.example.yandre.biontest.databinding.FragmentCalculatorBinding;
 import com.example.yandre.biontest.pojo.CalculateN;
@@ -31,7 +34,6 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     FragmentCalculatorBinding binding;
     CalculatorPresenter calculatorPresenter;
     public ObservableField<CalculatorItems> model;
-
 
     @Nullable
     @Override
@@ -118,6 +120,11 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     @Override
     public void displayData(CalculatorItems calculatorModel) {
         model.set(calculatorModel);
+    }
+
+    @Override
+    public void onClickCulture() {
+//        RecyclerView.Adapter adapter = new SoilFactorsAdapter()
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.example.yandre.biontest.database.data;
 
 import com.example.yandre.biontest.App;
 import com.example.yandre.biontest.database.dao.CalculatorDao;
+import com.example.yandre.biontest.database.dao.CultureDao;
 import com.example.yandre.biontest.database.dao.KUsvDao;
 import com.example.yandre.biontest.database.dao.MethodsK2ODao;
 import com.example.yandre.biontest.database.dao.MethodsNDao;
@@ -19,6 +20,7 @@ import com.example.yandre.biontest.database.model.MethodsK2OModel;
 import com.example.yandre.biontest.database.model.MethodsNModel;
 import com.example.yandre.biontest.database.model.MethodsP2O5Model;
 import com.example.yandre.biontest.database.model.PHModel;
+import com.example.yandre.biontest.database.model.CultureModel;
 import com.example.yandre.biontest.database.model.PotrebOsadkiModel;
 import com.example.yandre.biontest.database.model.SoilFactorsModel;
 import com.example.yandre.biontest.database.model.VinosModel;
@@ -32,8 +34,6 @@ import io.reactivex.schedulers.Schedulers;
 
 //Убрать это и сделать базу в assets/databases/
 public class AddStartData {
-    List<Method1Model> method1List;
-    List<Method2Model> method2List;
 
     public static void AddAllData() {
         setCalculatorData();
@@ -47,8 +47,9 @@ public class AddStartData {
         setPotrebOsadkiData();
         setVinosData();
         setVodopotrebData();
-
+        setCultureData();
     }
+
 
     private static void setSoilFactorsData() {
         SoilFactorsDao soilFactorsDao;
@@ -235,7 +236,7 @@ public class AddStartData {
         potrebOsadkiList.add(new PotrebOsadkiModel("Люцернна (сено) 2 год", 1302));
         potrebOsadkiList.add(new PotrebOsadkiModel("Люцернна (сено) 3 год", 1277));
         potrebOsadkiList.add(new PotrebOsadkiModel("Люцернна (сено) 4 год", 1252));
-        potrebOsadkiList.add(new PotrebOsadkiModel("Яровой рапс", 3746.5));
+        potrebOsadkiList.add(new PotrebOsadkiModel("Яровой рапс", 3747));
 
 
         Completable.fromAction(() -> potrebOsadkiDao.insertList(potrebOsadkiList))
@@ -271,11 +272,38 @@ public class AddStartData {
         CalculatorDao calculatorDao =
                 App.getInstance().getDatabase().calculatorDao();
         CalculatorModel calculatorModel =
-                new CalculatorModel(0, 0, 0, 0, 0, 0, 0, 23.5, 130,70);
+                new CalculatorModel(0, 0, 0, 0, 0, 0, 0, 23.5, 130, 70);
 
         Completable.fromAction(() -> calculatorDao.insert(calculatorModel))
                 .subscribeOn(Schedulers.io())
                 .subscribe();
     }
 
+    private static void setCultureData() {
+        CultureDao cultureDao =
+                App.getInstance().getDatabase().cultureDao();
+
+        List<CultureModel> cultureList = new ArrayList<>();
+        cultureList.add(new CultureModel("Озимая пшеница", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Озимый ячмень", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Яровая пшеница", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Яровой ячмень", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Озимая рожь", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Тритикале", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Соя", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Сахарная свекла", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Озимый рапс", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Картофель", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Кукуруза", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Люцернна (сено) 1 год", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Люцернна (сено) 2 год", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Люцернна (сено) 3 год", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Люцернна (сено) 4 год", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Яровой рапс", "@drawable/bion_logo"));
+
+
+        Completable.fromAction(() -> cultureDao.insertList(cultureList))
+                .subscribeOn(Schedulers.io())
+                .subscribe();
+    }
 }

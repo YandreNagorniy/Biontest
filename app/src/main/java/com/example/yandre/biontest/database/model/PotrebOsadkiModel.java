@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 //Расчет потребности в осадках
 @Entity
 public class PotrebOsadkiModel {
-    public PotrebOsadkiModel(String culture, double value) {
+    public PotrebOsadkiModel(String culture, int value) {
         this.culture = culture;
         this.value = value;
     }
@@ -14,7 +14,7 @@ public class PotrebOsadkiModel {
     @PrimaryKey(autoGenerate = true)
     private long id;
     private String culture;
-    private double value;
+    private int value;
 
     public long getId() {
         return id;
@@ -32,11 +32,11 @@ public class PotrebOsadkiModel {
         this.culture = culture;
     }
 
-    public double getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(int value) {
         this.value = value;
     }
 }
